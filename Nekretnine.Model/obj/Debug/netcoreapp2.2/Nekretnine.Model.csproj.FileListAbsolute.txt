@@ -1,0 +1,9 @@
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\bin\Debug\netcoreapp2.2\Nekretnine.Model.deps.json
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\bin\Debug\netcoreapp2.2\Nekretnine.Model.dll
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\bin\Debug\netcoreapp2.2\Nekretnine.Model.pdb
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.csprojAssemblyReference.cache
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.csproj.CoreCompileInputs.cache
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.AssemblyInfoInputs.cache
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.AssemblyInfo.cs
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.dll
+E:\V2017\Projects\Nekretnine.WebApi\Nekretnine.Model\obj\Debug\netcoreapp2.2\Nekretnine.Model.pdb
