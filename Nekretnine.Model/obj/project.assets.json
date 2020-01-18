@@ -692,11 +692,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\V2017\\Projects\\Nekretnine.WebApi\\Nekretnine.Model\\Nekretnine.Model.csproj",
+      "projectUniqueName": "E:\\V2017\\Projects\\Nekretnine\\Nekretnine.Model\\Nekretnine.Model.csproj",
       "projectName": "Nekretnine.Model",
-      "projectPath": "E:\\V2017\\Projects\\Nekretnine.WebApi\\Nekretnine.Model\\Nekretnine.Model.csproj",
+      "projectPath": "E:\\V2017\\Projects\\Nekretnine\\Nekretnine.Model\\Nekretnine.Model.csproj",
       "packagesPath": "C:\\Users\\NedžadLipovac\\.nuget\\packages\\",
-      "outputPath": "E:\\V2017\\Projects\\Nekretnine.WebApi\\Nekretnine.Model\\obj\\",
+      "outputPath": "E:\\V2017\\Projects\\Nekretnine\\Nekretnine.Model\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
