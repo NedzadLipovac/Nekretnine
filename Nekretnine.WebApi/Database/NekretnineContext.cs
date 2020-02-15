@@ -131,7 +131,7 @@ namespace Nekretnine.WebApi.Database
                     .IsRequired()
                     .HasMaxLength(50);
 
-                entity.Property(e => e.Prazime)
+                entity.Property(e => e.Prezime)
                     .IsRequired()
                     .HasMaxLength(50);
 
@@ -235,7 +235,7 @@ namespace Nekretnine.WebApi.Database
 
             modelBuilder.Entity<Slika>(entity =>
             {
-                entity.Property(e => e.Slika1).HasColumnName("Slika");
+                entity.Property(e => e.NazivSlike).HasColumnName("NazivSlike");
 
                 entity.HasOne(d => d.Nekretnina)
                     .WithMany(p => p.Slika)

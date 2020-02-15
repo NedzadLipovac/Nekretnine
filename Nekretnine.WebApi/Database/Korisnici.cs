@@ -13,7 +13,7 @@ namespace Nekretnine.WebApi.Database
 
         public int KorisnikId { get; set; }
         public string Ime { get; set; }
-        public string Prazime { get; set; }
+        public string Prezime { get; set; }
         public string Email { get; set; }
         public string Telefon { get; set; }
         public string Adresa { get; set; }
@@ -23,7 +23,8 @@ namespace Nekretnine.WebApi.Database
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public int? GradId { get; set; }
-
+        public bool Status { get; set; }
+        public string Username { get; set; }
         public virtual Grad Grad { get; set; }
         public virtual ICollection<KorisniciUloge> KorisniciUloge { get; set; }
         public virtual ICollection<Poruka> Poruka { get; set; }

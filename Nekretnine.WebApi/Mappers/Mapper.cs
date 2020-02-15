@@ -11,7 +11,24 @@ namespace Nekretnine.WebApi.Mappers
     {
         public Mapper()
         {
-            //CreateMap<User, UserViewModel>();
+            CreateMap<Database.Klijent, Model.Models.Klijent>().ReverseMap();
+            CreateMap<Database.Klijent, Model.Requests.KlijentUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Korisnici, Model.Models.Korisnik>().ReverseMap();
+            CreateMap<Database.Korisnici, Model.Requests.KorisnikUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Sastanak, Model.Models.Sastanak>().ReverseMap();
+            CreateMap<Database.Sastanak, Model.Requests.SastanakUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.UpitZaSastanak, Model.Models.UpitZaSastanak>().ReverseMap();
+            CreateMap<Database.UpitZaSastanak, Model.Requests.UpitZaSastanakUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Nekretnina, Model.Models.Nekretnina>().ReverseMap();
+            CreateMap<Database.Nekretnina, Model.Requests.NekretninaUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Slika, Model.Models.Slika>().ReverseMap();
+            CreateMap<Database.Slika, Model.Requests.SlikaUpsertRequest>().ReverseMap();
+
         }
     }
 }

@@ -19,7 +19,9 @@ namespace Nekretnine.WebApi.Database
         public int Kvadratura { get; set; }
         public string Vlasnik { get; set; }
         public bool? Prodaja { get; set; }
-        public int? GradId { get; set; }
+        public int GradId { get; set; }
+        public string Naziv { get; set; }
+
 
         public virtual Grad Grad { get; set; }
         public virtual ICollection<Komentar> Komentar { get; set; }

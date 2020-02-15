@@ -27,6 +27,7 @@ namespace Nekretnine.WebApi.Database
         public byte[] Slika { get; set; }
         public byte[] SlikaThumb { get; set; }
         public int? GradId { get; set; }
+        public bool? Status { get; set; }
 
         public virtual Grad Grad { get; set; }
         public virtual ICollection<Komentar> Komentar { get; set; }
