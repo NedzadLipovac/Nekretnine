@@ -50,6 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DetaljiKlijentaa = new System.Windows.Forms.TabPage();
+            this.dtpDatumRodjenja = new System.Windows.Forms.DateTimePicker();
             this.btnSacuvaj = new System.Windows.Forms.Button();
             this.chbAktivan = new System.Windows.Forms.CheckBox();
             this.btnDodajSliku = new System.Windows.Forms.Button();
@@ -64,6 +65,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtIme1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.NoviKlijent = new System.Windows.Forms.TabPage();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbGradNovi = new System.Windows.Forms.ComboBox();
@@ -86,20 +88,20 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtImeNovi = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.dtpDatumRodjenja = new System.Windows.Forms.DateTimePicker();
+            this.txtUsernameNovi = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).BeginInit();
             this.DetaljiKlijentaa.SuspendLayout();
-            this.NoviKlijent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.NoviKlijent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -317,6 +319,13 @@
             this.DetaljiKlijentaa.Text = "Detalji Klijenta";
             this.DetaljiKlijentaa.UseVisualStyleBackColor = true;
             // 
+            // dtpDatumRodjenja
+            // 
+            this.dtpDatumRodjenja.Location = new System.Drawing.Point(463, 376);
+            this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
+            this.dtpDatumRodjenja.Size = new System.Drawing.Size(234, 22);
+            this.dtpDatumRodjenja.TabIndex = 17;
+            // 
             // btnSacuvaj
             // 
             this.btnSacuvaj.Location = new System.Drawing.Point(608, 422);
@@ -445,8 +454,20 @@
             this.label5.Text = "Ime";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Nekretnine.WinUI.Properties.Resources.no_Image;
+            this.pictureBox1.Location = new System.Drawing.Point(35, 41);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(345, 357);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // NoviKlijent
             // 
+            this.NoviKlijent.Controls.Add(this.txtUsernameNovi);
+            this.NoviKlijent.Controls.Add(this.label19);
             this.NoviKlijent.Controls.Add(this.label18);
             this.NoviKlijent.Controls.Add(this.cmbGradNovi);
             this.NoviKlijent.Controls.Add(this.txtPotvrdaPaassworda);
@@ -476,6 +497,7 @@
             this.NoviKlijent.TabIndex = 2;
             this.NoviKlijent.Text = "Novi Klijent";
             this.NoviKlijent.UseVisualStyleBackColor = true;
+            this.NoviKlijent.Click += new System.EventHandler(this.NoviKlijent_Click);
             // 
             // label18
             // 
@@ -497,16 +519,15 @@
             // 
             // txtPotvrdaPaassworda
             // 
-            this.txtPotvrdaPaassworda.Location = new System.Drawing.Point(649, 179);
+            this.txtPotvrdaPaassworda.Location = new System.Drawing.Point(649, 239);
             this.txtPotvrdaPaassworda.Name = "txtPotvrdaPaassworda";
             this.txtPotvrdaPaassworda.Size = new System.Drawing.Size(231, 22);
             this.txtPotvrdaPaassworda.TabIndex = 19;
-            this.txtPotvrdaPaassworda.Validating += new System.ComponentModel.CancelEventHandler(this.txtPotvrdaPaassworda_Validating);
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(646, 159);
+            this.label17.Location = new System.Drawing.Point(646, 219);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(130, 17);
             this.label17.TabIndex = 18;
@@ -514,7 +535,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(649, 118);
+            this.txtPassword.Location = new System.Drawing.Point(649, 178);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(231, 22);
             this.txtPassword.TabIndex = 17;
@@ -523,7 +544,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(646, 99);
+            this.Password.Location = new System.Drawing.Point(646, 159);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(69, 17);
             this.Password.TabIndex = 16;
@@ -542,7 +563,7 @@
             // chbAktivanNovi
             // 
             this.chbAktivanNovi.AutoSize = true;
-            this.chbAktivanNovi.Location = new System.Drawing.Point(801, 235);
+            this.chbAktivanNovi.Location = new System.Drawing.Point(804, 296);
             this.chbAktivanNovi.Name = "chbAktivanNovi";
             this.chbAktivanNovi.Size = new System.Drawing.Size(76, 21);
             this.chbAktivanNovi.TabIndex = 14;
@@ -660,25 +681,6 @@
             this.label11.TabIndex = 1;
             this.label11.Text = "Ime";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Nekretnine.WinUI.Properties.Resources.no_Image;
-            this.pictureBox1.Location = new System.Drawing.Point(35, 41);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(345, 357);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -690,12 +692,31 @@
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
-            // dtpDatumRodjenja
+            // openFileDialog1
             // 
-            this.dtpDatumRodjenja.Location = new System.Drawing.Point(463, 376);
-            this.dtpDatumRodjenja.Name = "dtpDatumRodjenja";
-            this.dtpDatumRodjenja.Size = new System.Drawing.Size(234, 22);
-            this.dtpDatumRodjenja.TabIndex = 17;
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // txtUsernameNovi
+            // 
+            this.txtUsernameNovi.Location = new System.Drawing.Point(649, 129);
+            this.txtUsernameNovi.Name = "txtUsernameNovi";
+            this.txtUsernameNovi.Size = new System.Drawing.Size(231, 22);
+            this.txtUsernameNovi.TabIndex = 23;
+            this.txtUsernameNovi.Validating += new System.ComponentModel.CancelEventHandler(this.txtUsernameNovi_Validating);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(646, 110);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(99, 17);
+            this.label19.TabIndex = 22;
+            this.label19.Text = "Korisnicko Ime";
             // 
             // frmKlijenti
             // 
@@ -714,11 +735,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijenti)).EndInit();
             this.DetaljiKlijentaa.ResumeLayout(false);
             this.DetaljiKlijentaa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.NoviKlijent.ResumeLayout(false);
             this.NoviKlijent.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -786,5 +807,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumRodjenja;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.DateTimePicker dtpDatumRodjenja;
+        private System.Windows.Forms.TextBox txtUsernameNovi;
+        private System.Windows.Forms.Label label19;
     }
 }

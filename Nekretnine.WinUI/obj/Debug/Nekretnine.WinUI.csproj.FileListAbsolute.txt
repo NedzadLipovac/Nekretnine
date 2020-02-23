@@ -26,3 +26,5 @@ E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.Nekretn
 E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.Korisnici.frmKorisnici.resources
 E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.frmLogin.resources
 E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.Korisnici.frmProfil.resources
+E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.Poruke.frmPoruke.resources
+E:\V2017\Projects\Nekretnine\Nekretnine.WinUI\obj\Debug\Nekretnine.WinUI.Poruke.frmNovaPoruka.resources

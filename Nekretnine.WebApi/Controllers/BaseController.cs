@@ -9,7 +9,7 @@ using Nekretnine.WebApi.Services;
 
 namespace Nekretnine.WebApi.Controllers
 {
-    [Authorize]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class BaseController<T,TSearch> : ControllerBase

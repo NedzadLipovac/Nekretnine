@@ -3,6 +3,7 @@ using Nekretnine.Model.Requests;
 using Nekretnine.WinUI.Klijenti;
 using Nekretnine.WinUI.Korisnici;
 using Nekretnine.WinUI.Nekretnine;
+using Nekretnine.WinUI.Poruke;
 using Nekretnine.WinUI.Sastanci;
 using Nekretnine.WinUI.UpitiZaSastanke;
 using System;
@@ -114,14 +115,14 @@ namespace Nekretnine.WinUI
         {
             //pnlStats.Top = btnPoruke.Top;
             //pnlStats.Height = btnPoruke.Height;
-            //frmPoruke frm = new frmPoruke(KorisnikId);
-            //frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //frm.TopLevel = false;
-            //pnlMjesto.Controls.Clear();
+            frmPoruke frm = new frmPoruke(KorisnikId);
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.TopLevel = false;
+            pnlMjesto.Controls.Clear();
 
-            //pnlMjesto.Controls.Add(frm);
-            //frm.Dock = DockStyle.Fill;
-            //frm.Show();
+            pnlMjesto.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
 
         }
 

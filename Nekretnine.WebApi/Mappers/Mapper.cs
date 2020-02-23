@@ -29,6 +29,12 @@ namespace Nekretnine.WebApi.Mappers
             CreateMap<Database.Slika, Model.Models.Slika>().ReverseMap();
             CreateMap<Database.Slika, Model.Requests.SlikaUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Komentar, Model.Models.Komentar>().ReverseMap();
+            CreateMap<Database.Komentar, Model.Requests.KomentarUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.Poruka, Model.Models.Poruka>().ReverseMap();
+            CreateMap<Database.Poruka, Model.Requests.PorukaUpsertRequest>().ReverseMap();
+
         }
     }
 }

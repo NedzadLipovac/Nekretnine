@@ -19,6 +19,7 @@ namespace Nekretnine.Model.Models
         public byte[] SlikaThumb { get; set; }
         public bool Status { get; set; }
         public int GradId { get; set; }
+        public string Username { get; set; }
 
 
     }

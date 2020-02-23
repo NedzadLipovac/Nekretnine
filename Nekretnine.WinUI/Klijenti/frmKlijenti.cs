@@ -227,8 +227,8 @@ namespace Nekretnine.WinUI.Klijenti
                 UrediKlijentRequest.Telefon = txtTelefon1.Text;
                 UrediKlijentRequest.Email = txtEmail1.Text;
                 UrediKlijentRequest.DatumRodjenja = dtpDatumRodjenja.Value;
-                UrediKlijentRequest.Password = "test";
-                UrediKlijentRequest.PotvrdaPassworda = "test";
+            //UrediKlijentRequest.Password =txtPassword.Text;
+            //UrediKlijentRequest.PotvrdaPassworda =txtPotvrdaPaassworda.Text;
                 var entity = await _service.Update<Model.Models.Klijent>(_KlijentId, UrediKlijentRequest);
                 if (entity != null)
                 {
@@ -285,7 +285,7 @@ namespace Nekretnine.WinUI.Klijenti
                 DodajKlijentRequest.Password = txtPassword.Text;
                 DodajKlijentRequest.PotvrdaPassworda = txtPotvrdaPaassworda.Text;
                 DodajKlijentRequest.Status = chbAktivanNovi.Checked;
-
+                DodajKlijentRequest.Username = txtUsernameNovi.Text;
                 DodajKlijentRequest.DatumRodjenja = dtpDatumRodjenjaNovi.Value;
 
                 var entity = await _service.Insert<Model.Models.Klijent>(DodajKlijentRequest);
@@ -301,6 +301,7 @@ namespace Nekretnine.WinUI.Klijenti
                     txtTelefonNovi.Clear();
                     txtAdresaNovi.Clear();
                     txtPassword.Clear();
+                    txtUsernameNovi.Clear();
                     txtPotvrdaPaassworda.Clear();
                     chbAktivan.Checked = true;
                     dtpDatumRodjenjaNovi.Value = DateTime.Now.Date;
@@ -441,28 +442,7 @@ namespace Nekretnine.WinUI.Klijenti
 
         private void txtPotvrdaPaassworda_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPotvrdaPaassworda.Text))
-            {
-                errorProvider1.SetError(txtPotvrdaPaassworda, Properties.Resources.Validation_Required);
-                e.Cancel = true;
-            }
-            else if (!string.IsNullOrEmpty(txtPassword.Text))
-            {
-                if (string.Compare(txtPassword.Text, txtPotvrdaPaassworda.Text) != 0)
-                {
-                    errorProvider1.SetError(txtPotvrdaPaassworda, "Passwordi se ne podudaraju");
-                    e.Cancel = true;
-                }
-                else
-                {
-                    errorProvider1.SetError(txtPotvrdaPaassworda, null);
-                }
-            }
-            else
-            {
 
-                errorProvider1.SetError(txtPotvrdaPaassworda, null);
-            }
         }
         //validacija detalja
         private void txtIme1_Validating(object sender, CancelEventArgs e)
@@ -531,7 +511,54 @@ namespace Nekretnine.WinUI.Klijenti
             }
         }
 
+        private async void txtUsernameNovi_Validating(object sender, CancelEventArgs e)
+        {
+            bool postoji = false;
+
+            if (string.IsNullOrWhiteSpace(txtUsernameNovi.Text))
+            {
+                errorProvider1.SetError(txtUsernameNovi, Properties.Resources.Validation_Required);
+                e.Cancel = true;
+            }
+            else
+            {
+                KlijentSearchRequest klijentiSearch = new KlijentSearchRequest()
+                {
+                    Status = true,
+                    Username = txtUsernameNovi.Text
+                };
+
+
+                var user = await _service.Get<List<Model.Models.Klijent>>(klijentiSearch);
+                if (user.Count > 0)
+                {
+
+                    postoji = true;
+                }
+
+                klijentiSearch.Status = false;
+                user = await _service.Get<List<Model.Models.Klijent>>(klijentiSearch);
+                if (user.Count > 0)
+                {
+
+                    postoji = true;
+                }
+
+                if (postoji)
+                {
+                    errorProvider1.SetError(txtUsernameNovi, Properties.Resources.UsernameExists);
+                    e.Cancel = true;
+                }
+                else
+                    errorProvider1.SetError(txtUsernameNovi, null);
+            }
+        }
         #endregion
+
+        private void NoviKlijent_Click(object sender, EventArgs e)
+        {
+
+        }
 
 
     }

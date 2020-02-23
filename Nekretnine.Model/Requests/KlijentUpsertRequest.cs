@@ -51,6 +51,9 @@ namespace Nekretnine.Model.Requests
         [Required]
         public bool? Status { get; set; }
 
+        [Required]
+        public string Username { get; set; }
+
 
     }
 

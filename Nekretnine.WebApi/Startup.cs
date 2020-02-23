@@ -62,11 +62,14 @@ namespace Nekretnine.WebApi
              .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<IKlijentiService, KlijentiService>();
+            services.AddScoped<IGenerateHashHelper, GenerateHashHelperService>();
             services.AddScoped<IService<Model.Models.Grad, Model.Requests.GradSearchRequest>, BaseService<Model.Models.Grad, Model.Requests.GradSearchRequest, Database.Grad>>();
             services.AddScoped<ICRUDService<Model.Models.Sastanak, SastanakSearchRequest, SastanakUpsertRequest, SastanakUpsertRequest>, SastanciService>();
             services.AddScoped<ICRUDService<Model.Models.UpitZaSastanak, object, UpitZaSastanakUpsertRequest, UpitZaSastanakUpsertRequest>, UpitiZaSastankeService>();
             services.AddScoped<ICRUDService<Model.Models.Nekretnina, NekretninaSearchRequest, NekretninaUpsertRequest, NekretninaUpsertRequest>, NekretnineService>();
             services.AddScoped<ICRUDService<Model.Models.Slika, SlikaSearchRequest, SlikaUpsertRequest, SlikaUpsertRequest>, SlikeService>();
+            services.AddScoped<ICRUDService<Model.Models.Komentar, KomentarSearchRequest, KomentarUpsertRequest, KomentarUpsertRequest>, KomentarService>();
+            services.AddScoped<ICRUDService<Model.Models.Poruka, PorukaSearchRequest, PorukaUpsertRequest, PorukaUpsertRequest>, PorukaService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
             var connection = @"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<NekretnineContext>(options => options.UseSqlServer(connection));

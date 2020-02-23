@@ -88,9 +88,6 @@ namespace Nekretnine.WebApi.Database
             {
                 entity.Property(e => e.DatumVrijeme).HasColumnType("datetime");
 
-                entity.Property(e => e.Komentar1)
-                    .IsRequired()
-                    .HasColumnName("Komentar");
 
                 entity.HasOne(d => d.Klijent)
                     .WithMany(p => p.Komentar)

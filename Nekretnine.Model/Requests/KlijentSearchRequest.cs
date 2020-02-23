@@ -12,6 +12,8 @@ namespace Nekretnine.Model.Requests
         public string  Email { get; set; }
         public int? GradId { get; set; }
         public bool Status { get; set; }
+        public string Username { get; set; }
+
 
     }
 }
