@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Nekretnine.Mobile.ViewModels"
+             x:Class="Nekretnine.Mobile.Views.RegisterPage">
+    <ContentPage.BindingContext>
+        <vm:RegisterViewModel></vm:RegisterViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical"
+                      >
+            <Label Text="Registruj se"
+                    Margin="0,40,0,0"
+                    FontSize="18"
+                HorizontalOptions="CenterAndExpand"
+                  />
+
+            <Grid Padding="30,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Entry Placeholder="Ime"
+                     
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Ime}">
+                </Entry>
+                <Entry Placeholder="Prezime"
+                       MinimumWidthRequest="3"
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Prezime}"
+                       Grid.Column="1">
+                </Entry>
+
+                <Entry Placeholder="Username"
+                      
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Username}"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="1">
+                </Entry>
+
+                <Entry Placeholder="E-mail adresa"
+                      
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Email}"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="2">
+                </Entry>
+
+                <Label Text="Datum Rođenja"
+                       Grid.Row="3"
+                       Grid.Column="0"
+                       FontSize="17"
+                       VerticalOptions="Center"
+                       >
+                </Label>
+
+                <DatePicker Date="{Binding DatumRodjenja}"
+                            Grid.Row="3"
+                            Grid.Column="1">
+                           
+                </DatePicker>
+
+                <Picker ItemsSource="{Binding Grad}"
+                        Title="Grad"
+                        FontSize="17"
+                        Grid.Row="4"
+                        Grid.ColumnSpan="2"
+                        SelectedItem="{Binding SelectedGrad}"
+                        ItemDisplayBinding="{Binding Naziv}">
+                    
+                </Picker>
+
+                <Entry Placeholder="Adresa"
+                     
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Adresa}"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="5">
+                </Entry>
+                <Entry Placeholder="Telefon"
+                     
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Telefon}"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="6">
+                </Entry>
+                
+                <Entry Placeholder="Lozinka"
+                     x:Name="password"
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding Password}"
+                       Grid.Column="0"
+                       Grid.Row="7">
+                </Entry>
+                <Entry Placeholder="Lozinka potvrda"
+                       Unfocused="Entry_Unfocused"
+                       x:Name="passwordConfirm"
+                       FontSize="17"
+                       MaxLength="45"
+                       Text="{Binding ConfirmPassword}"
+                       Grid.Column="1"
+                       Grid.Row="7">
+                </Entry>
+
+                <Button Text="Registruj se "
+                       
+                        FontSize="17"
+                        Grid.Row="8"
+                        Grid.ColumnSpan="2"
+                        Command="{Binding RegisterCommand}"
+                        >
+                    
+                </Button>
+                <Label Text="Imaš profil ?"
+                       Grid.Row="9"
+                       Grid.Column="0"
+                       FontSize="18"
+                      
+                       VerticalOptions="Center"
+                       HorizontalTextAlignment="Center"
+                       >
+                </Label>
+                <Button Text="Prijavi se "
+                        Command="{Binding LoginCommand}"
+                        FontSize="17"
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        >
+
+                </Button>
+            </Grid>
+ 
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

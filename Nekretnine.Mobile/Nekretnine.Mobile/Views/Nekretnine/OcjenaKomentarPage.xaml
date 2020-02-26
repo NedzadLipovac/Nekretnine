@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uc="clr-namespace:Nekretnine.Mobile.CustomViews"
+             xmlns:viewModels="clr-namespace:Nekretnine.Mobile.ViewModels"
+             x:Class="Nekretnine.Mobile.Views.Nekretnine.OcjenaKomentarPage">
+    <ContentPage.BindingContext>
+        <viewModels:OcjenaKomentarViewModel></viewModels:OcjenaKomentarViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Label Text="Ocjena/Komentar Nekretnine"
+                HorizontalOptions="CenterAndExpand" />
+
+   <!--Ocjena-->
+
+            <Label HorizontalOptions="CenterAndExpand"
+                          
+                           Grid.Row="0" 
+                           Text="Ocjena nekretnine"
+                           FontSize="15" 
+                           FontAttributes="Bold"
+                           TextColor="Black"></Label>
+
+            <Grid Margin="0,10,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="1" FontSize="20" Grid.Column="0"
+                        x:Name="btn1" Clicked="Btn1_Clicked" 
+                        CornerRadius="40" BackgroundColor="DarkSlateGray" 
+                        IsEnabled="{Binding MozeOcijenit}"></Button>
+                
+                <Button Text="2" FontSize="20" Grid.Column="1"
+                        x:Name="btn2" Clicked="Btn2_Clicked"
+                        CornerRadius="40" BackgroundColor="DarkSlateGray" 
+                        IsEnabled="{Binding MozeOcijenit}"></Button>
+                
+                <Button Text="3" FontSize="20" Grid.Column="2"
+                       x:Name="btn3" Clicked="Btn3_Clicked" 
+                        CornerRadius="40" BackgroundColor="DarkSlateGray" 
+                        IsEnabled="{Binding MozeOcijenit}"></Button>
+                
+                <Button Text="4" FontSize="20" Grid.Column="3"
+                        x:Name="btn4" Clicked="Btn4_Clicked"
+                        CornerRadius="40" BackgroundColor="DarkSlateGray" 
+                        IsEnabled="{Binding MozeOcijenit}"></Button>
+                
+                <Button Text="5" FontSize="20" Grid.Column="4"
+                        x:Name="btn5" Clicked="Btn5_Clicked"
+                        CornerRadius="40" BackgroundColor="DarkSlateGray"
+                        IsEnabled="{Binding MozeOcijenit}"></Button>
+            </Grid>
+
+            <Label Text=" Unestie vas komentar"
+                   FontSize="17"
+                HorizontalOptions="CenterAndExpand" ></Label>
+            <Editor
+                Text="{Binding KomentarValue}"
+                HeightRequest="250" BackgroundColor="White" TextColor="Black">
+            </Editor>
+            <Button Clicked="Button_Clicked"    
+                    Text="Dodaj Komentar">
+                
+            </Button>
+            
+            
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

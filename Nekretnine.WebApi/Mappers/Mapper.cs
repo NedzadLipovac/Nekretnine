@@ -35,6 +35,11 @@ namespace Nekretnine.WebApi.Mappers
             CreateMap<Database.Poruka, Model.Models.Poruka>().ReverseMap();
             CreateMap<Database.Poruka, Model.Requests.PorukaUpsertRequest>().ReverseMap();
 
+            CreateMap<Database.Ocjena, Model.Models.Ocjena>().ReverseMap();
+            CreateMap<Database.Ocjena, Model.Requests.OcjenaUpsertRequest>().ReverseMap();
+
+            CreateMap<Database.SpaseneNekretnine, Model.Models.SpaseneNekretnine>().ReverseMap();
+            CreateMap<Database.SpaseneNekretnine, Model.Requests.SpaseneNekretnineUpsertRequest>().ReverseMap();
         }
     }
 }

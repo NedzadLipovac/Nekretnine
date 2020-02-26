@@ -70,6 +70,7 @@ namespace Nekretnine.WebApi
             services.AddScoped<ICRUDService<Model.Models.Slika, SlikaSearchRequest, SlikaUpsertRequest, SlikaUpsertRequest>, SlikeService>();
             services.AddScoped<ICRUDService<Model.Models.Komentar, KomentarSearchRequest, KomentarUpsertRequest, KomentarUpsertRequest>, KomentarService>();
             services.AddScoped<ICRUDService<Model.Models.Poruka, PorukaSearchRequest, PorukaUpsertRequest, PorukaUpsertRequest>, PorukaService>();
+            services.AddScoped<ICRUDService<Model.Models.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
             var connection = @"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<NekretnineContext>(options => options.UseSqlServer(connection));

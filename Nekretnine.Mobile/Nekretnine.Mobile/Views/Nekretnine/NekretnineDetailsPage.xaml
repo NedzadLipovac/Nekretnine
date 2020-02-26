@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Nekretnine.Mobile.ViewModels"
+             xmlns:converters="clr-namespace:Nekretnine.Mobile.Converters"
+             x:Class="Nekretnine.Mobile.Views.Nekretnine.NekretnineDetailsPage">
+    <ContentPage.BindingContext>
+        <viewModels:NekretnineDetailsViewModel></viewModels:NekretnineDetailsViewModel>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Detalji Nekretnine"
+                   TextColor="Black"
+                HorizontalOptions="CenterAndExpand" Margin="10" />
+            <!--<Image Source="{Binding SlikaValue, Converter={StaticResource imgConv}}"></Image>-->
+
+            <ListView x:Name="ItemsListView"
+                ItemsSource="{Binding Slike}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Image Source="{Binding NazivSlike, Converter={StaticResource imgConv}}"></Image>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <StackLayout Padding="10">
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Naziv Nekretnine :"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                    <Label Text="{Binding NazivNekretnine}"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Godina Izgradnje :"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                    <Label Text="{Binding GodinaIzgradnje}"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Adresa :"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                    <Label Text="{Binding Adresa}"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" >
+                    <Label Text="Kvadratura :"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                    <Label Text="{Binding Kvadratura}"
+                           TextColor="DarkGray"
+                           LineBreakMode="NoWrap"
+                           Style="{DynamicResource ListItemTextStyle}" 
+                           FontSize="13"
+                           />
+                </StackLayout>
+            </StackLayout>
+
+            <Button Text="Ocjena/Komentar"
+                    Clicked="Button_Clicked" >
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
