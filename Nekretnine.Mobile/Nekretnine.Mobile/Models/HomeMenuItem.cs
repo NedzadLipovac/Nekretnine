@@ -10,7 +10,8 @@ namespace Nekretnine.Mobile.Models
         About,
         Nekretnine,
         Poruke,
-        UpitZaSastanak
+        UpitZaSastanak,
+        MojeNekretnine
     }
     public class HomeMenuItem
     {

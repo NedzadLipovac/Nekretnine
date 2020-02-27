@@ -98,8 +98,16 @@
                 </StackLayout>
             </StackLayout>
 
-            <Button Text="Ocjena/Komentar"
+            <Button Text="OCJENA / KOMENTAR "
+                    FontAttributes="Bold"
                     Clicked="Button_Clicked" >
+            </Button>
+            <Button Text="SPASI NEKRETNINU"
+                    FontAttributes="Bold"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="Button1_Clicked"
+                    IsEnabled="{Binding MozeSpasit}">
             </Button>
 
         </StackLayout>

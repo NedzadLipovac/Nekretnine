@@ -16,7 +16,7 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Moje poruke"
@@ -90,9 +90,12 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Nova poruka"
+            <Button Text="NOVA PORUKA"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    BackgroundColor="Red"
                     Clicked="Button_Clicked">
-                      
+
             </Button>
         </StackLayout>
     </ContentPage.Content>

@@ -44,7 +44,9 @@ namespace Nekretnine.Mobile.Views
                     case (int)MenuItemType.UpitZaSastanak:
                         MenuPages.Add(id, new NavigationPage(new UpitZaSastanak.UpitZaSastanakPage(KlijentID)));
                         break;
-
+                    case (int)MenuItemType.MojeNekretnine:
+                        MenuPages.Add(id, new NavigationPage(new Nekretnine.SpaseneNekretninePage(KlijentID)));
+                        break;
 
                 }
             }

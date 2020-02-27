@@ -49,40 +49,40 @@
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvPrimljenePoruke = new System.Windows.Forms.DataGridView();
+            this.PorukaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Posiljaoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtImePoslan = new System.Windows.Forms.TextBox();
-            this.txtUserNamePoslan = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtPrezimePoslan = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnFiltrirajPrimaoce = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblNaslovPoslane = new System.Windows.Forms.Label();
+            this.lblKlijentPoslane = new System.Windows.Forms.Label();
+            this.lblDatumVrijemePoslane = new System.Windows.Forms.Label();
+            this.txtSadrzajPoslane = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dgvPoslanePoruke = new System.Windows.Forms.DataGridView();
             this.PorukaId1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Primaoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naslov1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.txtSadrzajPoslane = new System.Windows.Forms.TextBox();
-            this.lblDatumVrijemePoslane = new System.Windows.Forms.Label();
-            this.lblKlijentPoslane = new System.Windows.Forms.Label();
-            this.lblNaslovPoslane = new System.Windows.Forms.Label();
-            this.PorukaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Posiljaoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Naslov = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnFiltrirajPrimaoce = new System.Windows.Forms.Button();
+            this.txtPrezimePoslan = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtUserNamePoslan = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtImePoslan = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimljenePoruke)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPoslanePoruke)).BeginInit();
-            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -234,6 +234,7 @@
             this.txtSadrzajPrimljene.Location = new System.Drawing.Point(20, 166);
             this.txtSadrzajPrimljene.Multiline = true;
             this.txtSadrzajPrimljene.Name = "txtSadrzajPrimljene";
+            this.txtSadrzajPrimljene.ReadOnly = true;
             this.txtSadrzajPrimljene.Size = new System.Drawing.Size(427, 145);
             this.txtSadrzajPrimljene.TabIndex = 13;
             // 
@@ -308,6 +309,30 @@
             this.dgvPrimljenePoruke.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrimljenePoruke_CellContentClick);
             this.dgvPrimljenePoruke.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvPrimljenePoruke_MouseDoubleClick);
             // 
+            // PorukaId
+            // 
+            this.PorukaId.DataPropertyName = "PorukaId";
+            this.PorukaId.HeaderText = "PorukaId";
+            this.PorukaId.Name = "PorukaId";
+            this.PorukaId.ReadOnly = true;
+            this.PorukaId.Visible = false;
+            // 
+            // Posiljaoc
+            // 
+            this.Posiljaoc.DataPropertyName = "PosiljaocInfo";
+            this.Posiljaoc.HeaderText = "Posiljaoc";
+            this.Posiljaoc.Name = "Posiljaoc";
+            this.Posiljaoc.ReadOnly = true;
+            this.Posiljaoc.Width = 140;
+            // 
+            // Naslov
+            // 
+            this.Naslov.DataPropertyName = "Naslov";
+            this.Naslov.HeaderText = "Naslov";
+            this.Naslov.Name = "Naslov";
+            this.Naslov.ReadOnly = true;
+            this.Naslov.Width = 180;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox4);
@@ -327,65 +352,103 @@
             this.tabPage2.Text = "Poslane Poruke";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // groupBox4
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(46, 33);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(93, 17);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Ime Primaoca";
+            this.groupBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox4.Controls.Add(this.lblNaslovPoslane);
+            this.groupBox4.Controls.Add(this.lblKlijentPoslane);
+            this.groupBox4.Controls.Add(this.lblDatumVrijemePoslane);
+            this.groupBox4.Controls.Add(this.txtSadrzajPoslane);
+            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(465, 210);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(453, 350);
+            this.groupBox4.TabIndex = 8;
+            this.groupBox4.TabStop = false;
             // 
-            // txtImePoslan
+            // lblNaslovPoslane
             // 
-            this.txtImePoslan.Location = new System.Drawing.Point(49, 53);
-            this.txtImePoslan.Name = "txtImePoslan";
-            this.txtImePoslan.Size = new System.Drawing.Size(330, 22);
-            this.txtImePoslan.TabIndex = 1;
+            this.lblNaslovPoslane.AutoSize = true;
+            this.lblNaslovPoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNaslovPoslane.Location = new System.Drawing.Point(224, 104);
+            this.lblNaslovPoslane.Name = "lblNaslovPoslane";
+            this.lblNaslovPoslane.Size = new System.Drawing.Size(54, 18);
+            this.lblNaslovPoslane.TabIndex = 8;
+            this.lblNaslovPoslane.Text = "Naslov";
             // 
-            // txtUserNamePoslan
+            // lblKlijentPoslane
             // 
-            this.txtUserNamePoslan.Location = new System.Drawing.Point(49, 119);
-            this.txtUserNamePoslan.Name = "txtUserNamePoslan";
-            this.txtUserNamePoslan.Size = new System.Drawing.Size(330, 22);
-            this.txtUserNamePoslan.TabIndex = 3;
+            this.lblKlijentPoslane.AutoSize = true;
+            this.lblKlijentPoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKlijentPoslane.Location = new System.Drawing.Point(224, 73);
+            this.lblKlijentPoslane.Name = "lblKlijentPoslane";
+            this.lblKlijentPoslane.Size = new System.Drawing.Size(47, 18);
+            this.lblKlijentPoslane.TabIndex = 7;
+            this.lblKlijentPoslane.Text = "Klijent";
             // 
-            // label9
+            // lblDatumVrijemePoslane
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(46, 99);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(125, 17);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Username Priaoca";
+            this.lblDatumVrijemePoslane.AutoSize = true;
+            this.lblDatumVrijemePoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDatumVrijemePoslane.Location = new System.Drawing.Point(224, 38);
+            this.lblDatumVrijemePoslane.Name = "lblDatumVrijemePoslane";
+            this.lblDatumVrijemePoslane.Size = new System.Drawing.Size(110, 18);
+            this.lblDatumVrijemePoslane.TabIndex = 6;
+            this.lblDatumVrijemePoslane.Text = "Datum i vrijeme";
             // 
-            // txtPrezimePoslan
+            // txtSadrzajPoslane
             // 
-            this.txtPrezimePoslan.Location = new System.Drawing.Point(472, 53);
-            this.txtPrezimePoslan.Name = "txtPrezimePoslan";
-            this.txtPrezimePoslan.Size = new System.Drawing.Size(330, 22);
-            this.txtPrezimePoslan.TabIndex = 5;
+            this.txtSadrzajPoslane.Enabled = false;
+            this.txtSadrzajPoslane.Location = new System.Drawing.Point(20, 178);
+            this.txtSadrzajPoslane.Multiline = true;
+            this.txtSadrzajPoslane.Name = "txtSadrzajPoslane";
+            this.txtSadrzajPoslane.ReadOnly = true;
+            this.txtSadrzajPoslane.Size = new System.Drawing.Size(427, 145);
+            this.txtSadrzajPoslane.TabIndex = 5;
             // 
-            // label10
+            // label14
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(469, 33);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 17);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "Prezime Primaoca";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(29, 153);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(137, 18);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "Sadržaj poruke : ";
             // 
-            // btnFiltrirajPrimaoce
+            // label13
             // 
-            this.btnFiltrirajPrimaoce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrirajPrimaoce.Location = new System.Drawing.Point(681, 114);
-            this.btnFiltrirajPrimaoce.Name = "btnFiltrirajPrimaoce";
-            this.btnFiltrirajPrimaoce.Size = new System.Drawing.Size(121, 27);
-            this.btnFiltrirajPrimaoce.TabIndex = 6;
-            this.btnFiltrirajPrimaoce.Text = "Filtriraj";
-            this.btnFiltrirajPrimaoce.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnFiltrirajPrimaoce.UseVisualStyleBackColor = true;
-            this.btnFiltrirajPrimaoce.Click += new System.EventHandler(this.btnFiltrirajPrimaoce_Click);
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(143, 104);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(75, 18);
+            this.label13.TabIndex = 3;
+            this.label13.Text = "Naslov : ";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(132, 73);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(86, 18);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Primaoc : ";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(29, 38);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(189, 18);
+            this.label11.TabIndex = 1;
+            this.label11.Text = "Datum i vrijeme slanja : ";
             // 
             // groupBox3
             // 
@@ -438,127 +501,65 @@
             this.Naslov1.Name = "Naslov1";
             this.Naslov1.ReadOnly = true;
             // 
-            // groupBox4
+            // btnFiltrirajPrimaoce
             // 
-            this.groupBox4.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBox4.Controls.Add(this.lblNaslovPoslane);
-            this.groupBox4.Controls.Add(this.lblKlijentPoslane);
-            this.groupBox4.Controls.Add(this.lblDatumVrijemePoslane);
-            this.groupBox4.Controls.Add(this.txtSadrzajPoslane);
-            this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(465, 210);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(453, 350);
-            this.groupBox4.TabIndex = 8;
-            this.groupBox4.TabStop = false;
+            this.btnFiltrirajPrimaoce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFiltrirajPrimaoce.Location = new System.Drawing.Point(681, 114);
+            this.btnFiltrirajPrimaoce.Name = "btnFiltrirajPrimaoce";
+            this.btnFiltrirajPrimaoce.Size = new System.Drawing.Size(121, 27);
+            this.btnFiltrirajPrimaoce.TabIndex = 6;
+            this.btnFiltrirajPrimaoce.Text = "Filtriraj";
+            this.btnFiltrirajPrimaoce.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnFiltrirajPrimaoce.UseVisualStyleBackColor = true;
+            this.btnFiltrirajPrimaoce.Click += new System.EventHandler(this.btnFiltrirajPrimaoce_Click);
             // 
-            // label11
+            // txtPrezimePoslan
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(29, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(189, 18);
-            this.label11.TabIndex = 1;
-            this.label11.Text = "Datum i vrijeme slanja : ";
+            this.txtPrezimePoslan.Location = new System.Drawing.Point(472, 53);
+            this.txtPrezimePoslan.Name = "txtPrezimePoslan";
+            this.txtPrezimePoslan.Size = new System.Drawing.Size(330, 22);
+            this.txtPrezimePoslan.TabIndex = 5;
             // 
-            // label12
+            // label10
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(132, 73);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(86, 18);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Primaoc : ";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(469, 33);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(122, 17);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "Prezime Primaoca";
             // 
-            // label13
+            // txtUserNamePoslan
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(143, 104);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(75, 18);
-            this.label13.TabIndex = 3;
-            this.label13.Text = "Naslov : ";
+            this.txtUserNamePoslan.Location = new System.Drawing.Point(49, 119);
+            this.txtUserNamePoslan.Name = "txtUserNamePoslan";
+            this.txtUserNamePoslan.Size = new System.Drawing.Size(330, 22);
+            this.txtUserNamePoslan.TabIndex = 3;
             // 
-            // label14
+            // label9
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(29, 153);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(137, 18);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Sadržaj poruke : ";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(46, 99);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(125, 17);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Username Priaoca";
             // 
-            // txtSadrzajPoslane
+            // txtImePoslan
             // 
-            this.txtSadrzajPoslane.Enabled = false;
-            this.txtSadrzajPoslane.Location = new System.Drawing.Point(20, 178);
-            this.txtSadrzajPoslane.Multiline = true;
-            this.txtSadrzajPoslane.Name = "txtSadrzajPoslane";
-            this.txtSadrzajPoslane.ReadOnly = true;
-            this.txtSadrzajPoslane.Size = new System.Drawing.Size(427, 145);
-            this.txtSadrzajPoslane.TabIndex = 5;
+            this.txtImePoslan.Location = new System.Drawing.Point(49, 53);
+            this.txtImePoslan.Name = "txtImePoslan";
+            this.txtImePoslan.Size = new System.Drawing.Size(330, 22);
+            this.txtImePoslan.TabIndex = 1;
             // 
-            // lblDatumVrijemePoslane
+            // label8
             // 
-            this.lblDatumVrijemePoslane.AutoSize = true;
-            this.lblDatumVrijemePoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDatumVrijemePoslane.Location = new System.Drawing.Point(224, 38);
-            this.lblDatumVrijemePoslane.Name = "lblDatumVrijemePoslane";
-            this.lblDatumVrijemePoslane.Size = new System.Drawing.Size(110, 18);
-            this.lblDatumVrijemePoslane.TabIndex = 6;
-            this.lblDatumVrijemePoslane.Text = "Datum i vrijeme";
-            // 
-            // lblKlijentPoslane
-            // 
-            this.lblKlijentPoslane.AutoSize = true;
-            this.lblKlijentPoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKlijentPoslane.Location = new System.Drawing.Point(224, 73);
-            this.lblKlijentPoslane.Name = "lblKlijentPoslane";
-            this.lblKlijentPoslane.Size = new System.Drawing.Size(47, 18);
-            this.lblKlijentPoslane.TabIndex = 7;
-            this.lblKlijentPoslane.Text = "Klijent";
-            // 
-            // lblNaslovPoslane
-            // 
-            this.lblNaslovPoslane.AutoSize = true;
-            this.lblNaslovPoslane.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNaslovPoslane.Location = new System.Drawing.Point(224, 104);
-            this.lblNaslovPoslane.Name = "lblNaslovPoslane";
-            this.lblNaslovPoslane.Size = new System.Drawing.Size(54, 18);
-            this.lblNaslovPoslane.TabIndex = 8;
-            this.lblNaslovPoslane.Text = "Naslov";
-            // 
-            // PorukaId
-            // 
-            this.PorukaId.DataPropertyName = "PorukaId";
-            this.PorukaId.HeaderText = "PorukaId";
-            this.PorukaId.Name = "PorukaId";
-            this.PorukaId.ReadOnly = true;
-            this.PorukaId.Visible = false;
-            // 
-            // Posiljaoc
-            // 
-            this.Posiljaoc.DataPropertyName = "PosiljaocInfo";
-            this.Posiljaoc.HeaderText = "Posiljaoc";
-            this.Posiljaoc.Name = "Posiljaoc";
-            this.Posiljaoc.ReadOnly = true;
-            this.Posiljaoc.Width = 140;
-            // 
-            // Naslov
-            // 
-            this.Naslov.DataPropertyName = "Naslov";
-            this.Naslov.HeaderText = "Naslov";
-            this.Naslov.Name = "Naslov";
-            this.Naslov.ReadOnly = true;
-            this.Naslov.Width = 180;
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(46, 33);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 17);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "Ime Primaoca";
             // 
             // frmPoruke
             // 
@@ -579,10 +580,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrimljenePoruke)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvPoslanePoruke)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPoslanePoruke)).EndInit();
             this.ResumeLayout(false);
 
         }

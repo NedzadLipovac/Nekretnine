@@ -85,6 +85,21 @@
             this.imageList = new System.Windows.Forms.ListView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.komentariPage = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dgvKomentari = new System.Windows.Forms.DataGridView();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblKlijent = new System.Windows.Forms.Label();
+            this.txtKomentar = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.cmbKlijent = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.KomentarId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KlijentId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumVrijeme = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KomentarValue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.listaNekretnina.SuspendLayout();
             this.Nekretnine.SuspendLayout();
@@ -94,6 +109,10 @@
             this.SlikeNekretnine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.komentariPage.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKomentari)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -102,6 +121,7 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.DetaljiNekretnine);
             this.tabControl1.Controls.Add(this.SlikeNekretnine);
+            this.tabControl1.Controls.Add(this.komentariPage);
             this.tabControl1.Location = new System.Drawing.Point(2, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -633,6 +653,162 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // komentariPage
+            // 
+            this.komentariPage.Controls.Add(this.button1);
+            this.komentariPage.Controls.Add(this.label17);
+            this.komentariPage.Controls.Add(this.cmbKlijent);
+            this.komentariPage.Controls.Add(this.groupBox2);
+            this.komentariPage.Controls.Add(this.groupBox1);
+            this.komentariPage.Location = new System.Drawing.Point(4, 25);
+            this.komentariPage.Name = "komentariPage";
+            this.komentariPage.Padding = new System.Windows.Forms.Padding(3);
+            this.komentariPage.Size = new System.Drawing.Size(897, 564);
+            this.komentariPage.TabIndex = 4;
+            this.komentariPage.Text = "Komentari Nekretnine";
+            this.komentariPage.UseVisualStyleBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Controls.Add(this.dgvKomentari);
+            this.groupBox1.Location = new System.Drawing.Point(0, 152);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(427, 365);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Komentari";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.txtKomentar);
+            this.groupBox2.Controls.Add(this.lblKlijent);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Location = new System.Drawing.Point(433, 152);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(457, 365);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            // 
+            // dgvKomentari
+            // 
+            this.dgvKomentari.AllowUserToAddRows = false;
+            this.dgvKomentari.AllowUserToDeleteRows = false;
+            this.dgvKomentari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKomentari.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.KomentarId,
+            this.KlijentId,
+            this.DatumVrijeme,
+            this.KomentarValue});
+            this.dgvKomentari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKomentari.Location = new System.Drawing.Point(3, 18);
+            this.dgvKomentari.Name = "dgvKomentari";
+            this.dgvKomentari.ReadOnly = true;
+            this.dgvKomentari.RowTemplate.Height = 24;
+            this.dgvKomentari.Size = new System.Drawing.Size(421, 344);
+            this.dgvKomentari.TabIndex = 0;
+            this.dgvKomentari.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKomentari_MouseDoubleClick);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(12, 34);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(111, 18);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Komentator : ";
+            // 
+            // lblKlijent
+            // 
+            this.lblKlijent.AutoSize = true;
+            this.lblKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKlijent.Location = new System.Drawing.Point(122, 34);
+            this.lblKlijent.Name = "lblKlijent";
+            this.lblKlijent.Size = new System.Drawing.Size(54, 18);
+            this.lblKlijent.TabIndex = 1;
+            this.lblKlijent.Text = "Klijent";
+            // 
+            // txtKomentar
+            // 
+            this.txtKomentar.Location = new System.Drawing.Point(6, 102);
+            this.txtKomentar.Multiline = true;
+            this.txtKomentar.Name = "txtKomentar";
+            this.txtKomentar.ReadOnly = true;
+            this.txtKomentar.Size = new System.Drawing.Size(445, 257);
+            this.txtKomentar.TabIndex = 2;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(9, 82);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(81, 18);
+            this.label18.TabIndex = 3;
+            this.label18.Text = "Komentar";
+            this.label18.Click += new System.EventHandler(this.label18_Click);
+            // 
+            // cmbKlijent
+            // 
+            this.cmbKlijent.FormattingEnabled = true;
+            this.cmbKlijent.Location = new System.Drawing.Point(126, 54);
+            this.cmbKlijent.Name = "cmbKlijent";
+            this.cmbKlijent.Size = new System.Drawing.Size(296, 24);
+            this.cmbKlijent.TabIndex = 2;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(44, 57);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(54, 17);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Klijent :";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(321, 117);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 26);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Filtriraj";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // KomentarId
+            // 
+            this.KomentarId.DataPropertyName = "KomentarId";
+            this.KomentarId.HeaderText = "KomentarId";
+            this.KomentarId.Name = "KomentarId";
+            this.KomentarId.ReadOnly = true;
+            // 
+            // KlijentId
+            // 
+            this.KlijentId.DataPropertyName = "KlijentId";
+            this.KlijentId.HeaderText = "KlijentId";
+            this.KlijentId.Name = "KlijentId";
+            this.KlijentId.ReadOnly = true;
+            this.KlijentId.Visible = false;
+            // 
+            // DatumVrijeme
+            // 
+            this.DatumVrijeme.DataPropertyName = "DatumVrijeme";
+            this.DatumVrijeme.HeaderText = "DatumVrijeme";
+            this.DatumVrijeme.Name = "DatumVrijeme";
+            this.DatumVrijeme.ReadOnly = true;
+            this.DatumVrijeme.Width = 150;
+            // 
+            // KomentarValue
+            // 
+            this.KomentarValue.DataPropertyName = "KomentarValue";
+            this.KomentarValue.HeaderText = "KomentarValue";
+            this.KomentarValue.Name = "KomentarValue";
+            this.KomentarValue.ReadOnly = true;
+            this.KomentarValue.Width = 160;
+            // 
             // frmNekretnine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -656,6 +832,12 @@
             this.SlikeNekretnine.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.komentariPage.ResumeLayout(false);
+            this.komentariPage.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKomentari)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -718,5 +900,20 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnSpremiSliku;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.TabPage komentariPage;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtKomentar;
+        private System.Windows.Forms.Label lblKlijent;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dgvKomentari;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cmbKlijent;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KomentarId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatumVrijeme;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KomentarValue;
     }
 }

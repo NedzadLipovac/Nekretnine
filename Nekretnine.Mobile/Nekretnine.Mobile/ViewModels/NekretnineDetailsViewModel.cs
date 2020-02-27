@@ -15,6 +15,7 @@ namespace Nekretnine.Mobile.ViewModels
     {
         private readonly APIService _nekretnineService = new APIService("Nekretnina");
         private readonly APIService _slikaService = new APIService("Slika");
+        private readonly APIService _spaseneNekretnineService = new APIService("SpaseneNekretnine");
 
 
         public int KlijentID, NekretninaID;
@@ -68,21 +69,55 @@ namespace Nekretnine.Mobile.ViewModels
             get { return _slikaValue; }
             set { SetProperty(ref _slikaValue, value); }
         }
+        private bool _mozeSpasti = false;
+        public bool MozeSpasit
+        {
+            get { return _mozeSpasti; }
+            set { SetProperty(ref _mozeSpasti, value); }
+        }
+        
+        public ICommand SpasiCommand { get; set; }
+
+        public async Task SpasiNekretninu()
+        {
+            SpaseneNekretnineUpsertRequest upsertRequest = new SpaseneNekretnineUpsertRequest();
+            upsertRequest.DatumIzmjene = DateTime.Now;
+            upsertRequest.KlijentId = KlijentID;
+            upsertRequest.NekretninaId = NekretninaID;
+
+            var entity = await _spaseneNekretnineService.Insert<Model.Models.SpaseneNekretnine>(upsertRequest);
+            if(entity!=null)
+            {
+                await Application.Current.MainPage.DisplayAlert("Obavijest", "Uspjesno ste spasili nekretninu", "OK");
+            }
+        }
+         
         public async Task Init()
         {
             var nekretnina = await _nekretnineService.GetById<Model.Models.Nekretnina>(NekretninaID);
             var searchSlika = new SlikaSearchRequest();
             searchSlika.NekretninaId = NekretninaID;
             var slike = await _slikaService.Get<List<Model.Models.Slika>>(searchSlika);
-          
+            Slike.Clear();
             foreach (var item in slike)
             {
                 Slike.Add(item);
             }
 
-
-            Slika = slike[0];
-            SlikaValue = slike[0].NazivSlike;
+            SpaseneNekretnineSearchRequest searchRequestNekretnina = new SpaseneNekretnineSearchRequest();
+            searchRequestNekretnina.KlijentId = KlijentID;
+            searchRequestNekretnina.NekretninaId = NekretninaID;
+            var entity = await _spaseneNekretnineService.Get<List<Model.Models.SpaseneNekretnine>>(searchRequestNekretnina);
+            if(entity.Count>0)
+            {
+                MozeSpasit = false;
+            }
+            else
+            {
+                MozeSpasit = true;
+            }
+            //Slika = slike[0];
+            //SlikaValue = slike[0].NazivSlike;
             Nekretnina.Adresa = nekretnina.Adresa;
             Nekretnina.GodinaIzgradnje = nekretnina.GodinaIzgradnje;
             Nekretnina.Grad = nekretnina.Grad;

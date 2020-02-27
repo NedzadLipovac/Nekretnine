@@ -14,7 +14,7 @@
             <Entry Text="{Binding UserName}"></Entry>
             
             <Label Text="Password"></Label>
-            <Entry Text="{Binding Password}"></Entry>
+            <Entry Text="{Binding Password}" IsPassword="True"></Entry>
             <Button Text="LOGIN" 
                     Command="{Binding LoginCommand}"
                     FontAttributes="Bold"></Button>

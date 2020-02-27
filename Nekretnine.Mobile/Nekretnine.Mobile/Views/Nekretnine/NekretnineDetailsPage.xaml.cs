@@ -24,7 +24,11 @@ namespace Nekretnine.Mobile.Views.Nekretnine
         {
             await Navigation.PushAsync(new OcjenaKomentarPage(NekretninaID,KlijentID));
         }
-
+        private async void Button1_Clicked(object sender, EventArgs e)
+        {
+            await model.SpasiNekretninu();
+            model.Init();
+        }
         public NekretnineDetailsPage (int KlijentId,int NekretninaId)
 		{
             KlijentID = KlijentId;

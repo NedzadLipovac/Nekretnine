@@ -18,11 +18,15 @@ namespace Nekretnine.WinUI.Nekretnine
         private readonly APIService _service = new APIService("Nekretnina");
         private readonly APIService _gradService = new APIService("Grad");
         private readonly APIService _slikaService = new APIService("Slika");
+        private readonly APIService _komentarService = new APIService("Komentar");
+        private readonly APIService _klijentService = new APIService("Klijent");
+
 
 
         private NekretninaUpsertRequest nekretninaDodaj = new NekretninaUpsertRequest();
         private NekretninaUpsertRequest nekretninaUredi = new NekretninaUpsertRequest();
         private SlikaUpsertRequest slikadodaj = new SlikaUpsertRequest();
+        
 
         private List<Image> LoadedImages { get; set; }
 
@@ -36,8 +40,10 @@ namespace Nekretnine.WinUI.Nekretnine
         private async void frmNekretnine_Load(object sender, EventArgs e)
         {
             dgvNekretnine.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvKomentari.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.tabControl1.TabPages.Remove(DetaljiNekretnine);
             this.tabControl1.TabPages.Remove(SlikeNekretnine);
+            this.tabControl1.TabPages.Remove(komentariPage);
             await LoadGradovi(cmbGrad);
             await LoadGradovi(cmbGradNovi);
         }
@@ -49,6 +55,14 @@ namespace Nekretnine.WinUI.Nekretnine
 
             ComboBoxLoad<Model.Models.Grad> cmbLoad = new ComboBoxLoad<Model.Models.Grad>();
             cmbLoad.Load(cmb, result, "Naziv", "GradId");
+        }
+        private async Task LoadKlijenti(ComboBox cmb)
+        {
+            var result = await _klijentService.Get<List<Model.Models.Klijent>>(null);
+            result.Insert(0, new Model.Models.Klijent());
+
+            ComboBoxLoad<Model.Models.Klijent> cmbLoad = new ComboBoxLoad<Model.Models.Klijent>();
+            cmbLoad.Load(cmb, result, "Ime", "KlijentId");
         }
         private async void btnPrikaziNekretnine_Click(object sender, EventArgs e)
         {
@@ -117,6 +131,7 @@ namespace Nekretnine.WinUI.Nekretnine
         {
             this.tabControl1.TabPages.Remove(DetaljiNekretnine);
             this.tabControl1.TabPages.Remove(SlikeNekretnine);
+            this.tabControl1.TabPages.Remove(komentariPage);
 
             var id = 0;
             if (dgvNekretnine.RowCount > 0)
@@ -126,11 +141,14 @@ namespace Nekretnine.WinUI.Nekretnine
                 _NekretninaId = id;
 
                 await LoadGradovi(cmbGradDetalji);
+                await LoadKlijenti(cmbKlijent);
                 await UcitajDetaljeNekretnina();
 
                 this.tabControl1.TabPages.Add(DetaljiNekretnine);
                 this.tabControl1.TabPages.Add(SlikeNekretnine);
+                this.tabControl1.TabPages.Add(komentariPage);
                 this.tabControl1.SelectTab(SlikeNekretnine);
+                //this.tabControl1.SelectTab(komentariPage);
 
             }
         }
@@ -139,6 +157,11 @@ namespace Nekretnine.WinUI.Nekretnine
         {
             var nekretnina = await _service.GetById<Model.Models.Nekretnina>(_NekretninaId);
             var grad=await _gradService.GetById<Model.Models.Grad>(nekretnina.GradId);
+            KomentarSearchRequest komentarSearch = new KomentarSearchRequest();
+            komentarSearch.NekretninaId = _NekretninaId;
+            var komentari = await _komentarService.Get<List<Model.Models.Komentar>>(komentarSearch);
+            dgvKomentari.AutoGenerateColumns = false;
+            dgvKomentari.DataSource = komentari;
 
             txtAdresaDetalji.Text = nekretnina.Adresa;
             txtGodinaIzgradnjeDetalji.Text = nekretnina.GodinaIzgradnje;
@@ -258,6 +281,7 @@ namespace Nekretnine.WinUI.Nekretnine
                 MessageBox.Show("Podaci uspjesno izmjenjeni");
                 this.tabControl1.TabPages.Remove(DetaljiNekretnine);
                 this.tabControl1.TabPages.Remove(SlikeNekretnine);
+                this.tabControl1.TabPages.Remove(komentariPage);
                 
                 this.tabControl1.SelectTab(listaNekretnina);
             }
@@ -425,8 +449,30 @@ namespace Nekretnine.WinUI.Nekretnine
             }
         }
 
+
         #endregion
 
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label18_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void dgvKomentari_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = 0;
+            if (dgvKomentari.RowCount > 0)
+            {
+                var val = dgvKomentari.SelectedRows[0].Cells[0].Value;
+                id = int.Parse(val.ToString());
+                var koment = await _komentarService.GetById<Model.Models.Komentar>(id);
+
+                txtKomentar.Text = koment.KomentarValue;
+            }
+        }
     }
 }
