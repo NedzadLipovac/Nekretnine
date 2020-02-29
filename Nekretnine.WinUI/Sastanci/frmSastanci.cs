@@ -55,7 +55,11 @@ namespace Nekretnine.WinUI.Sastanci
         }
         private async Task LoadKlijenti (ComboBox cmb)
         {
-            var result = await _klijentiService.Get<List<Model.Models.Klijent>>(null);
+            KlijentSearchRequest searchRequest = new KlijentSearchRequest()
+            {
+                Status = true
+            };
+            var result = await _klijentiService.Get<List<Model.Models.Klijent>>(searchRequest);
             result.Insert(0, new Model.Models.Klijent());
 
             ComboBoxLoad<Model.Models.Klijent> cmbLoad = new ComboBoxLoad<Model.Models.Klijent>();

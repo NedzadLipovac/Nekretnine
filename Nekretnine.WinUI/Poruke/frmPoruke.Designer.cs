@@ -74,6 +74,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtImePoslan = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnNovaPorukaNoviKlijent = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -331,7 +332,7 @@
             this.Naslov.HeaderText = "Naslov";
             this.Naslov.Name = "Naslov";
             this.Naslov.ReadOnly = true;
-            this.Naslov.Width = 180;
+            this.Naslov.Width = 200;
             // 
             // tabPage2
             // 
@@ -493,6 +494,7 @@
             this.Primaoc.HeaderText = "Primaoc";
             this.Primaoc.Name = "Primaoc";
             this.Primaoc.ReadOnly = true;
+            this.Primaoc.Width = 140;
             // 
             // Naslov1
             // 
@@ -500,6 +502,7 @@
             this.Naslov1.HeaderText = "Naslov";
             this.Naslov1.Name = "Naslov1";
             this.Naslov1.ReadOnly = true;
+            this.Naslov1.Width = 180;
             // 
             // btnFiltrirajPrimaoce
             // 
@@ -561,11 +564,23 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Ime Primaoca";
             // 
+            // btnNovaPorukaNoviKlijent
+            // 
+            this.btnNovaPorukaNoviKlijent.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNovaPorukaNoviKlijent.Location = new System.Drawing.Point(735, 625);
+            this.btnNovaPorukaNoviKlijent.Name = "btnNovaPorukaNoviKlijent";
+            this.btnNovaPorukaNoviKlijent.Size = new System.Drawing.Size(174, 34);
+            this.btnNovaPorukaNoviKlijent.TabIndex = 8;
+            this.btnNovaPorukaNoviKlijent.Text = "NOVA PORUKA";
+            this.btnNovaPorukaNoviKlijent.UseVisualStyleBackColor = true;
+            this.btnNovaPorukaNoviKlijent.Click += new System.EventHandler(this.btnNovaPorukaNoviKlijent_Click);
+            // 
             // frmPoruke
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(938, 651);
+            this.ClientSize = new System.Drawing.Size(938, 671);
+            this.Controls.Add(this.btnNovaPorukaNoviKlijent);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmPoruke";
@@ -620,9 +635,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView dgvPoslanePoruke;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PorukaId1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Primaoc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Naslov1;
         private System.Windows.Forms.Button btnFiltrirajPrimaoce;
         private System.Windows.Forms.TextBox txtPrezimePoslan;
         private System.Windows.Forms.Label label10;
@@ -636,5 +648,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PorukaId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Posiljaoc;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naslov;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PorukaId1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Primaoc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naslov1;
+        private System.Windows.Forms.Button btnNovaPorukaNoviKlijent;
     }
 }

@@ -75,10 +75,10 @@
             // 
             // txtSadrzaj
             // 
-            this.txtSadrzaj.Location = new System.Drawing.Point(59, 225);
+            this.txtSadrzaj.Location = new System.Drawing.Point(55, 225);
             this.txtSadrzaj.Multiline = true;
             this.txtSadrzaj.Name = "txtSadrzaj";
-            this.txtSadrzaj.Size = new System.Drawing.Size(384, 200);
+            this.txtSadrzaj.Size = new System.Drawing.Size(388, 200);
             this.txtSadrzaj.TabIndex = 5;
             // 
             // label4

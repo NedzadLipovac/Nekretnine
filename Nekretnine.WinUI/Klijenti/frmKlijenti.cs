@@ -91,7 +91,7 @@ namespace Nekretnine.WinUI.Klijenti
             {
                 search.Email = txtEmail.Text.ToLower();
             }
-            search.Status = chbAktivan.Checked;
+            search.Status = true;
             var result = await _service.Get<List<Model.Models.Klijent>>(search);
             dgvKlijenti.AutoGenerateColumns = false;
             dgvKlijenti.DataSource = result;

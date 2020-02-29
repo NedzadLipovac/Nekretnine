@@ -136,6 +136,14 @@ namespace Nekretnine.WinUI.Poruke
 
         }
 
+        private async void btnNovaPorukaNoviKlijent_Click(object sender, EventArgs e)
+        {
+            //Model.Models.Poruka p = await _PorukaService.GetById<Model.Models.Poruka>(_PorukaID);
+            frmNovaPorukaNoviKlijent frm = new frmNovaPorukaNoviKlijent(_UserID);
+            btnOdgovori.Visible = false;
+            frm.Show();
+        }
+
         private async Task PretragaPrimljenihPoruka()
         {
             var search = new PorukaSearchRequest();

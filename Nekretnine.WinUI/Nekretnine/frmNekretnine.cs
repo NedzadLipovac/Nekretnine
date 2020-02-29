@@ -20,7 +20,7 @@ namespace Nekretnine.WinUI.Nekretnine
         private readonly APIService _slikaService = new APIService("Slika");
         private readonly APIService _komentarService = new APIService("Komentar");
         private readonly APIService _klijentService = new APIService("Klijent");
-
+        private  KomentarSearchRequest komentarSearch = new KomentarSearchRequest();
 
 
         private NekretninaUpsertRequest nekretninaDodaj = new NekretninaUpsertRequest();
@@ -58,7 +58,11 @@ namespace Nekretnine.WinUI.Nekretnine
         }
         private async Task LoadKlijenti(ComboBox cmb)
         {
-            var result = await _klijentService.Get<List<Model.Models.Klijent>>(null);
+            KlijentSearchRequest searchRequest = new KlijentSearchRequest()
+            {
+                Status = true
+            };
+            var result = await _klijentService.Get<List<Model.Models.Klijent>>(searchRequest);
             result.Insert(0, new Model.Models.Klijent());
 
             ComboBoxLoad<Model.Models.Klijent> cmbLoad = new ComboBoxLoad<Model.Models.Klijent>();
@@ -156,12 +160,8 @@ namespace Nekretnine.WinUI.Nekretnine
         private async Task UcitajDetaljeNekretnina()
         {
             var nekretnina = await _service.GetById<Model.Models.Nekretnina>(_NekretninaId);
-            var grad=await _gradService.GetById<Model.Models.Grad>(nekretnina.GradId);
-            KomentarSearchRequest komentarSearch = new KomentarSearchRequest();
-            komentarSearch.NekretninaId = _NekretninaId;
-            var komentari = await _komentarService.Get<List<Model.Models.Komentar>>(komentarSearch);
-            dgvKomentari.AutoGenerateColumns = false;
-            dgvKomentari.DataSource = komentari;
+            var grad = await _gradService.GetById<Model.Models.Grad>(nekretnina.GradId);
+            await UcitajKomentareNekretnine();
 
             txtAdresaDetalji.Text = nekretnina.Adresa;
             txtGodinaIzgradnjeDetalji.Text = nekretnina.GodinaIzgradnje;
@@ -173,8 +173,19 @@ namespace Nekretnine.WinUI.Nekretnine
             nekretninaUredi.GradId = nekretnina.GradId;
             nekretninaUredi.NekretninaId = nekretnina.NekretninaId;
 
-          await SetImageList();
+            await SetImageList();
 
+        }
+
+        private async Task UcitajKomentareNekretnine()
+        {
+           
+            komentarSearch.NekretninaId = _NekretninaId;
+            var komentari = await _komentarService.Get<List<Model.Models.Komentar>>(komentarSearch);
+            dgvKomentari.AutoGenerateColumns = false;
+            dgvKomentari.DataSource = komentari;
+            this.txtKomentar.Text = "";
+            this.lblKlijent.Text = "Klijent";
         }
 
         private async  Task SetImageList()
@@ -470,9 +481,22 @@ namespace Nekretnine.WinUI.Nekretnine
                 var val = dgvKomentari.SelectedRows[0].Cells[0].Value;
                 id = int.Parse(val.ToString());
                 var koment = await _komentarService.GetById<Model.Models.Komentar>(id);
-
+                var klijent = await _klijentService.GetById<Model.Models.Klijent>(koment.KlijentId);
+                lblKlijent.Text = klijent.Ime + " " + klijent.Prezime;
                 txtKomentar.Text = koment.KomentarValue;
             }
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var KlijentObj = cmbKlijent.SelectedValue;
+            if (KlijentObj == null)
+                KlijentObj = 0;
+            if (int.TryParse(KlijentObj.ToString(), out int KlijentId))
+            {
+                komentarSearch.KlijentId = KlijentId;
+            }
+            await UcitajKomentareNekretnine();
         }
     }
 }

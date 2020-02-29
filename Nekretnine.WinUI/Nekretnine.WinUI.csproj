@@ -109,6 +109,12 @@
     <Compile Include="Poruke\frmNovaPoruka.Designer.cs">
       <DependentUpon>frmNovaPoruka.cs</DependentUpon>
     </Compile>
+    <Compile Include="Poruke\frmNovaPorukaNoviKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Poruke\frmNovaPorukaNoviKlijent.Designer.cs">
+      <DependentUpon>frmNovaPorukaNoviKlijent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Poruke\frmPoruke.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke\frmNovaPoruka.resx">
       <DependentUpon>frmNovaPoruka.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Poruke\frmNovaPorukaNoviKlijent.resx">
+      <DependentUpon>frmNovaPorukaNoviKlijent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Poruke\frmPoruke.resx">
       <DependentUpon>frmPoruke.cs</DependentUpon>
