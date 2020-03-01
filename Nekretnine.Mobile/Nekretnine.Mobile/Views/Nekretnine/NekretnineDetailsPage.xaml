@@ -7,13 +7,13 @@
     <ContentPage.BindingContext>
         <viewModels:NekretnineDetailsViewModel></viewModels:NekretnineDetailsViewModel>
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Detalji Nekretnine"
@@ -96,18 +96,40 @@
                            FontSize="13"
                            />
                 </StackLayout>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="SPASI NEKRETNINU"
+                    FontAttributes="Bold"
+                    BackgroundColor="Red"
+                    TextColor="White"
+                    Clicked="Button1_Clicked"
+                        Grid.Column="0"
+                        Grid.Row="0"
+                    IsEnabled="{Binding MozeSpasit}">
+                    </Button>
+                    <Button Text="VIDI PREPORUCENE"
+                    FontAttributes="Bold"
+                    BackgroundColor="Green"
+                    TextColor="White"
+                            x:Name="btnPreporucene"
+                    Clicked="BtnPreporucene_Clicked"
+                        Grid.Column="1"
+                        Grid.Row="0"
+                           
+                   >
+                    </Button>
+                </Grid>
             </StackLayout>
 
             <Button Text="OCJENA / KOMENTAR "
                     FontAttributes="Bold"
                     Clicked="Button_Clicked" >
-            </Button>
-            <Button Text="SPASI NEKRETNINU"
-                    FontAttributes="Bold"
-                    BackgroundColor="Red"
-                    TextColor="White"
-                    Clicked="Button1_Clicked"
-                    IsEnabled="{Binding MozeSpasit}">
             </Button>
 
         </StackLayout>

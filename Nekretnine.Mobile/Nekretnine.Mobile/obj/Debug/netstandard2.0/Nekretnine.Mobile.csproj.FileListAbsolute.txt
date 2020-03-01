@@ -28,3 +28,4 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netst
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\Poruke\MessageDetailsPage.xaml.g.cs
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\UpitZaSastanak\UpitZaSastanakPage.xaml.g.cs
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\Nekretnine\SpaseneNekretninePage.xaml.g.cs
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\Nekretnine\PreporuceneNekretninePage.xaml.g.cs

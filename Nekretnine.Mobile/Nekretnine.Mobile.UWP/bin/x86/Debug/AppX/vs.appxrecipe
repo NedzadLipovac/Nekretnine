@@ -30,13 +30,13 @@
     <AppXManifest Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-02-27T22:33:22.734</Modified>
+      <Modified>2020-03-01T00:04:02.481</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\bin\x86\Debug\Nekretnine.Mobile.UWP.exe">
       <PackagePath>entrypoint\Nekretnine.Mobile.UWP.exe</PackagePath>
-      <Modified>2020-02-27T22:33:21.413</Modified>
+      <Modified>2020-03-01T00:04:00.993</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\NedžadLipovac\.nuget\packages\flurl\2.8.2\lib\netstandard2.0\Flurl.dll">
       <PackagePath>Flurl.dll</PackagePath>
@@ -728,7 +728,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\bin\Debug\netstandard2.0\Nekretnine.Mobile.dll">
       <PackagePath>Nekretnine.Mobile.dll</PackagePath>
-      <Modified>2020-02-27T22:33:14.710</Modified>
+      <Modified>2020-03-01T00:03:53.046</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\bin\Debug\netstandard2.0\Nekretnine.Model.dll">
       <PackagePath>Nekretnine.Model.dll</PackagePath>
@@ -895,11 +895,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-02-27T22:33:21.220</Modified>
+      <Modified>2020-03-01T00:04:00.790</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2020-02-27T22:33:21.220</Modified>
+      <Modified>2020-03-01T00:04:00.791</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Windows Kits\10\UnionMetadata\10.0.17134.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -915,7 +915,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\bin\x86\Debug\Core\Nekretnine.Mobile.UWP.exe">
       <PackagePath>Nekretnine.Mobile.UWP.exe</PackagePath>
-      <Modified>2020-02-27T22:33:22.727</Modified>
+      <Modified>2020-03-01T00:04:02.474</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

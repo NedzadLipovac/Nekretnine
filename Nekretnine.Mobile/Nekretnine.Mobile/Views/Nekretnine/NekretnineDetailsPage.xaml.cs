@@ -35,10 +35,19 @@ namespace Nekretnine.Mobile.Views.Nekretnine
             NekretninaID = NekretninaId;
 			InitializeComponent ();
             BindingContext = model = new NekretnineDetailsViewModel();
-            model.KlijentID = KlijentID;
-            model.NekretninaID = NekretninaID;
+            NekretnineDetailsViewModel.KlijentID = KlijentId;
+            NekretnineDetailsViewModel.NekretninaID = NekretninaId;
+            //model.KlijentID = KlijentID;
+            //model.NekretninaID = NekretninaID;
             
-		} 
+		}
+
+        private async void BtnPreporucene_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new PreporuceneNekretninePage());
+
+        }
+
         protected async override void OnAppearing()
         {
             base.OnAppearing();

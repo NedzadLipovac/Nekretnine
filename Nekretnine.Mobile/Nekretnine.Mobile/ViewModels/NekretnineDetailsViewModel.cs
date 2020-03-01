@@ -1,4 +1,5 @@
-﻿using Nekretnine.Mobile.Views.Nekretnine;
+﻿using Nekretnine.Mobile.Helper;
+using Nekretnine.Mobile.Views.Nekretnine;
 using Nekretnine.Model.Models;
 using Nekretnine.Model.Requests;
 using System;
@@ -18,7 +19,7 @@ namespace Nekretnine.Mobile.ViewModels
         private readonly APIService _spaseneNekretnineService = new APIService("SpaseneNekretnine");
 
 
-        public int KlijentID, NekretninaID;
+        public static int KlijentID, NekretninaID;
         public NekretnineDetailsViewModel()
         {
             OcjenaKomentarCommand = new Command(() => OcjenaKomentar());
@@ -26,6 +27,7 @@ namespace Nekretnine.Mobile.ViewModels
         }
         Model.Models.Nekretnina Nekretnina = new Model.Models.Nekretnina();
         public ObservableCollection<Slika> Slike { get; set; } = new ObservableCollection<Slika>();
+        public ObservableCollection<Nekretnina> PreporuceneNekretnine { get; set; } = new ObservableCollection<Nekretnina>();
 
         public ICommand OcjenaKomentarCommand { get; set; }
         public void OcjenaKomentar()
@@ -75,11 +77,19 @@ namespace Nekretnine.Mobile.ViewModels
             get { return _mozeSpasti; }
             set { SetProperty(ref _mozeSpasti, value); }
         }
-        
+
+        private bool _imaPreporucenih = false;
+        public bool ImaPreporucenih
+        {
+            get { return _imaPreporucenih; }
+            set { SetProperty(ref _imaPreporucenih, value); }
+        }
+
         public ICommand SpasiCommand { get; set; }
 
         public async Task SpasiNekretninu()
         {
+           
             SpaseneNekretnineUpsertRequest upsertRequest = new SpaseneNekretnineUpsertRequest();
             upsertRequest.DatumIzmjene = DateTime.Now;
             upsertRequest.KlijentId = KlijentID;
@@ -91,9 +101,30 @@ namespace Nekretnine.Mobile.ViewModels
                 await Application.Current.MainPage.DisplayAlert("Obavijest", "Uspjesno ste spasili nekretninu", "OK");
             }
         }
-         
+         public async Task UcitajPreporucene()
+        {
+            PreporuceneNekretnine.Clear();
+            Recommender recommender = new Recommender();
+            List<Nekretnina> slicneNekretnine = await recommender.GetPreporuceneNekretnine(NekretninaID);
+            PreporuceneNekretnine.Clear();
+            foreach (var sn in slicneNekretnine)
+            {
+                PreporuceneNekretnine.Add(sn);
+            }
+
+        }
         public async Task Init()
         {
+            Recommender recommender = new Recommender();
+            List<Nekretnina> slicneNekretnine = await recommender.GetPreporuceneNekretnine(NekretninaID);
+            if (slicneNekretnine.Count > 0)
+            {
+                _imaPreporucenih = true;
+            }
+
+            else
+                _imaPreporucenih = false;
+
             var nekretnina = await _nekretnineService.GetById<Model.Models.Nekretnina>(NekretninaID);
             var searchSlika = new SlikaSearchRequest();
             searchSlika.NekretninaId = NekretninaID;
