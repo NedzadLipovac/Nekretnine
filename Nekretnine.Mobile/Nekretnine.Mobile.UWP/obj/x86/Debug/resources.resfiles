@@ -24,12 +24,14 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Deb
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.FileSystem.Watcher.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.IsolatedStorage.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.MemoryMappedFiles.SR.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.Pipelines.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.Pipes.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.IO.Ports.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Linq.Expressions.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Linq.Parallel.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Linq.Queryable.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Linq.SR.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Memory.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Net.Http.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Net.HttpListener.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Net.Mail.SR.resw
@@ -76,7 +78,9 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Deb
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Security.Cryptography.X509Certificates.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Security.Principal.Windows.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Text.Encoding.CodePages.SR.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Text.Json.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Text.RegularExpressions.SR.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Threading.Channels.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Threading.Overlapped.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Threading.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Threading.Tasks.Dataflow.SR.resw
@@ -84,3 +88,10 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Deb
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Threading.Thread.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.Transactions.Local.SR.resw
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\FxResources.System.ValueTuple.SR.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.Configuration.Binder\en-US\Microsoft.Extensions.Configuration.Binder.Resources.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.Configuration\en-US\Microsoft.Extensions.Configuration.Resources.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.DependencyInjection.Abstractions\en-US\Microsoft.Extensions.DependencyInjection.Abstractions.Resources.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.DependencyInjection\en-US\Microsoft.Extensions.DependencyInjection.Resources.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.Logging.Abstractions\en-US\Microsoft.Extensions.Logging.Abstractions.Resource.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.Options\en-US\Microsoft.Extensions.Options.Resources.resw
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile.UWP\obj\x86\Debug\Microsoft.Extensions.Primitives\en-US\Microsoft.Extensions.Primitives.Resources.resw

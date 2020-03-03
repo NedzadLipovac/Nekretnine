@@ -1,4 +1,5 @@
-﻿using Nekretnine.Model.Models;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Nekretnine.Model.Models;
 using Nekretnine.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Nekretnine.Mobile.ViewModels
         public int KlijentID, NekretninaID;
         private readonly APIService _spaseneNekretnineService = new APIService("SpaseneNekretnine");
         private readonly APIService _nekretnineService = new APIService("Nekretnina");
+        HubConnection connection;
 
         public SpaseneNekretnineViewModel()
         {
@@ -27,6 +29,10 @@ namespace Nekretnine.Mobile.ViewModels
             NekretninaID = NekretninaId;
             InitCommand = new Command(async () => await Init());
 
+            connection = new HubConnectionBuilder()
+            .WithUrl("http://localhost:64804/api/poruka")
+            .Build();
+             
         }
 
         public ObservableCollection<Nekretnina> NekretninaList { get; set; } = new ObservableCollection<Nekretnina>();
@@ -36,7 +42,13 @@ namespace Nekretnine.Mobile.ViewModels
 
         public async Task Init()
         {
-        
+
+            connection = new HubConnectionBuilder()
+            //.WithUrl("http://localhost:64804/api/Poruka")
+            .WithUrl("/Myhub")
+            .Build();
+
+            await connection.StartAsync();
             SpaseneNekretnineSearchRequest search = new SpaseneNekretnineSearchRequest();
 
             search.NekretninaId = 0;

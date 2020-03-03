@@ -8,6 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.AspNetCore.SignalR.Client;
+using TableDependency.SqlClient;
+using System.IO;
+using TableDependency.SqlClient.Base.EventArgs;
+using TableDependency.SqlClient.Base.Enums;
+using Tulpep.NotificationWindow;
 
 namespace Nekretnine.WinUI.Poruke
 {
@@ -15,11 +21,18 @@ namespace Nekretnine.WinUI.Poruke
     {
         private readonly APIService _PorukaService = new APIService("Poruka");
         private int _UserID = 0, _PorukaID = 0;
+        private HubConnection connection;
 
         public frmPoruke(int uid)
         {
             _UserID = uid;
             InitializeComponent();
+
+            connection = new HubConnectionBuilder()
+              .WithUrl("http://localhost:64804/api")
+              .Build();
+
+
         }
 
         private async void frmPoruke_Load(object sender, EventArgs e)
@@ -28,8 +41,60 @@ namespace Nekretnine.WinUI.Poruke
             dgvPoslanePoruke.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             await PretragaPrimljenihPoruka();
             await PretragaPoslanihPoruka();
-        }
+            SqlTableDependency<Model.Models.Poruka> _dependency;
+            var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
 
+
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.newpost;
+            popup.TitleText = "OBAVIJEST";
+            popup.ContentText = "Nova poruka primljena";
+            popup.Popup();
+            //var connectionString =@"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
+
+            //var connectionString = @"Server =.;Database=CarHireRC;Trusted_Connection=true;ConnectRetryCount=0";
+
+            //_dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString,"Poruka");
+
+            //_dependency.OnChanged += _dependency_OnChanged;
+            //_dependency.OnError += _dependency_OnError;
+            //_dependency.Start();
+            //try
+            //{
+            //    await connection.StartAsync();
+            //    //messagesList.Items.Add("Connection started");
+            //    //connectButton.IsEnabled = false;
+            //    //sendButton.IsEnabled = true;
+            //    connection.On("refreshEmployees", () =>
+            //    {
+            //        MessageBox.Show("evo me ");
+            //    });
+            //}
+            //catch (Exception ex)
+            //{
+            //    //messagesList.Items.Add(ex.Message);
+            //    throw;
+            //}
+        }
+        private void _dependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
+        {
+            throw e.Error;
+        }
+        private  void _dependency_OnChanged(object sender, RecordChangedEventArgs<Model.Models.Poruka> e)
+        {
+
+            if (e.ChangeType != ChangeType.None)
+            {
+                //this.grid.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
+                //{
+                //    this.grid.ItemsSource = ArticleController.GetAll();
+                //}));
+                MessageBox.Show("Novi zapis u bazi ");
+                 PretragaPrimljenihPoruka();
+
+
+            }
+        }
         private void label5_Click(object sender, EventArgs e)
         {
 
@@ -139,6 +204,7 @@ namespace Nekretnine.WinUI.Poruke
         private async void btnNovaPorukaNoviKlijent_Click(object sender, EventArgs e)
         {
             //Model.Models.Poruka p = await _PorukaService.GetById<Model.Models.Poruka>(_PorukaID);
+
             frmNovaPorukaNoviKlijent frm = new frmNovaPorukaNoviKlijent(_UserID);
             btnOdgovori.Visible = false;
             frm.Show();

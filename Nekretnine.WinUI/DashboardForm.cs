@@ -12,6 +12,10 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using TableDependency.SqlClient;
+using TableDependency.SqlClient.Base.Enums;
+using TableDependency.SqlClient.Base.EventArgs;
+using Tulpep.NotificationWindow;
 
 namespace Nekretnine.WinUI
 {
@@ -43,7 +47,17 @@ namespace Nekretnine.WinUI
             var users = await _KorisnikService.Get<List<Model.Models.Korisnik>>(_searchRequest);
 
             var user = users.FirstOrDefault();
+            SqlTableDependency<Model.Models.Poruka> _dependency;
+            var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
+            //var connectionString =@"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
 
+            //var connectionString = @"Server =.;Database=CarHireRC;Trusted_Connection=true;ConnectRetryCount=0";
+
+            _dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString, "Poruka");
+
+            _dependency.OnChanged += _dependency_OnChanged;
+            _dependency.OnError += _dependency_OnError;
+            _dependency.Start();
 
             if (user != null)
             {
@@ -93,6 +107,34 @@ namespace Nekretnine.WinUI
 
             }
         }
+        private void _dependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
+        {
+            throw e.Error;
+        }
+        private async void _dependency_OnChanged(object sender, RecordChangedEventArgs<Model.Models.Poruka> e)
+        {
+
+            if (e.ChangeType != ChangeType.None && e.Entity.Posiljaoc != "Uposlenik")
+            {
+                //this.grid.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
+                //{
+                //    this.grid.ItemsSource = ArticleController.GetAll();
+                //}));
+                btnPoruke.BackColor = Color.Red;
+              
+                //NewMethod();
+
+            }
+        }
+
+        private static void NewMethod()
+        {
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = Properties.Resources.newpost;
+            popup.TitleText = "OBAVIJEST";
+            popup.ContentText = "Nova poruka primljena";
+            popup.Popup();
+        }
 
         //Pregled home tab-a
         private void btnHome_Click(object sender, EventArgs e)
@@ -115,6 +157,7 @@ namespace Nekretnine.WinUI
         {
             //pnlStats.Top = btnPoruke.Top;
             //pnlStats.Height = btnPoruke.Height;
+            btnPoruke.BackColor = Color.FromArgb(11, 40, 42);
             frmPoruke frm = new frmPoruke(KorisnikId);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             frm.TopLevel = false;

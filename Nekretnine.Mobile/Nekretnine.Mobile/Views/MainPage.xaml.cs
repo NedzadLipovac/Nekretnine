@@ -3,6 +3,9 @@ using Nekretnine.Mobile.Views.Nekretnine;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TableDependency.SqlClient;
+using TableDependency.SqlClient.Base.Enums;
+using TableDependency.SqlClient.Base.EventArgs;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +24,29 @@ namespace Nekretnine.Mobile.Views
             MasterBehavior = MasterBehavior.Popover;
 
             MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            //SqlTableDependency<Model.Models.Poruka> _dependency;
+            //var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
+            //_dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString, "Poruka");
+
         }
+        //private void _dependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
+        //{
+        //    throw e.Error;
+        //}
+        //private async void _dependency_OnChanged(object sender, RecordChangedEventArgs<Model.Models.Poruka> e)
+        //{
+
+        //    if (e.ChangeType != ChangeType.None )
+        //    {
+        //        //this.grid.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
+        //        //{
+        //        //    this.grid.ItemsSource = ArticleController.GetAll();
+        //        //}));
+
+        //       await App.Current.MainPage.DisplayAlert("OBAVIJEST", "Nova poruka primljena", "OK");
+
+        //    }
+        //}
 
         public async Task NavigateFromMenu(int id)
         {

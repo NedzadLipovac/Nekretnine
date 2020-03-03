@@ -1,4 +1,5 @@
-﻿using Nekretnine.Model.Requests;
+﻿using Microsoft.AspNetCore.SignalR.Client;
+using Nekretnine.Model.Requests;
 using Nekretnine.WinUI.Helper;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace Nekretnine.WinUI.Poruke
     {
         private readonly APIService _porukaService = new APIService("Poruka");
         private readonly APIService _klijentService = new APIService("Klijent");
+        private HubConnection connection;
 
         private int _KlijentID, _UposlenikID = 0;
         public frmNovaPorukaNoviKlijent(int UID)
@@ -68,6 +70,17 @@ namespace Nekretnine.WinUI.Poruke
                 MessageBox.Show("Poruka je uspješno poslana");
                 this.Close();
             }
+
+            //try
+            //{
+            //    await connection.InvokeAsync("SendMessage",
+            //        "Uposlenik",txtNaslov.Text, txtSadrzaj.Text);
+            //}
+            //catch (Exception ex)
+            //{
+            //    //messagesList.Items.Add(ex.Message);
+            //    throw;
+            //}
         }
     }
 }

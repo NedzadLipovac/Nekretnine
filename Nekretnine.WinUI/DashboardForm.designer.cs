@@ -246,6 +246,7 @@
             // 
             // btnPoruke
             // 
+            this.btnPoruke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(40)))), ((int)(((byte)(42)))));
             this.btnPoruke.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPoruke.FlatAppearance.BorderSize = 0;
             this.btnPoruke.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -261,7 +262,7 @@
             this.btnPoruke.Text = "    Poruke";
             this.btnPoruke.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPoruke.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPoruke.UseVisualStyleBackColor = true;
+            this.btnPoruke.UseVisualStyleBackColor = false;
             this.btnPoruke.Click += new System.EventHandler(this.btnPoruke_Click);
             // 
             // btnHome

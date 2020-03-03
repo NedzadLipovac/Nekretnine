@@ -16,7 +16,6 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netst
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Nekretnine.Mobile.csprojAssemblyReference.cache
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\bin\Debug\netstandard2.0\Nekretnine.Model.dll
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\bin\Debug\netstandard2.0\Nekretnine.Model.pdb
-E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\XamlC.stamp
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Nekretnine.Mobile.csproj.CopyComplete
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\RegisterPage.xaml.g.cs
@@ -29,3 +28,4 @@ E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netst
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\UpitZaSastanak\UpitZaSastanakPage.xaml.g.cs
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\Nekretnine\SpaseneNekretninePage.xaml.g.cs
 E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\Views\Nekretnine\PreporuceneNekretninePage.xaml.g.cs
+E:\V2017\Projects\Nekretnine\Nekretnine.Mobile\Nekretnine.Mobile\obj\Debug\netstandard2.0\XamlC.stamp

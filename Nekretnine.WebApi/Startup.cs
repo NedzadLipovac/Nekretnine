@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Nekretnine.Model.Requests;
 using Nekretnine.WebApi.Database;
+using Nekretnine.WebApi.Hubs;
 using Nekretnine.WebApi.Services;
 using Swashbuckle.AspNetCore.Swagger;
 using Swashbuckle.AspNetCore.SwaggerGen;
@@ -73,8 +74,17 @@ namespace Nekretnine.WebApi
             services.AddScoped<ICRUDService<Model.Models.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
             services.AddScoped<ICRUDService<Model.Models.SpaseneNekretnine, SpaseneNekretnineSearchRequest, SpaseneNekretnineUpsertRequest, SpaseneNekretnineUpsertRequest>, SpaseneNekretnineService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
-            var connection = @"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
+
+            services.AddSignalR();
+            var connection = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;;ConnectRetryCount=0";
             services.AddDbContext<NekretnineContext>(options => options.UseSqlServer(connection));
+
+            services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
+            {
+                builder.AllowAnyMethod()
+                .AllowAnyHeader()
+                .WithOrigins("http://localhost:64804");
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request 69.
@@ -90,6 +100,11 @@ namespace Nekretnine.WebApi
                 app.UseHsts();
             }
             app.UseSwagger();
+
+            app.UseSignalR(config =>
+            {
+                config.MapHub<MyHub>("/api/Poruke");
+            });
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
@@ -97,7 +112,7 @@ namespace Nekretnine.WebApi
 
             app.UseAuthentication();
 
-           // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseMvc();
 
 
