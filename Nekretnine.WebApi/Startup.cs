@@ -74,9 +74,9 @@ namespace Nekretnine.WebApi
             services.AddScoped<ICRUDService<Model.Models.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaService>();
             services.AddScoped<ICRUDService<Model.Models.SpaseneNekretnine, SpaseneNekretnineSearchRequest, SpaseneNekretnineUpsertRequest, SpaseneNekretnineUpsertRequest>, SpaseneNekretnineService>();
             services.AddScoped<IKorisniciService, KorisniciService>();
-
+       
             services.AddSignalR();
-            var connection = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;;ConnectRetryCount=0";
+            var connection = Model.ConnectionString.connectionString;
             services.AddDbContext<NekretnineContext>(options => options.UseSqlServer(connection));
 
             services.AddCors(o => o.AddPolicy("CorsPolicy", builder =>
@@ -101,10 +101,10 @@ namespace Nekretnine.WebApi
             }
             app.UseSwagger();
 
-            app.UseSignalR(config =>
-            {
-                config.MapHub<MyHub>("/api/Poruke");
-            });
+            //app.UseSignalR(config =>
+            //{
+            //    config.MapHub<MyHub>("/api/Poruke");
+            //});
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
@@ -112,7 +112,7 @@ namespace Nekretnine.WebApi
 
             app.UseAuthentication();
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMvc();
 
 

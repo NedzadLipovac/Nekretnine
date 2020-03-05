@@ -41,59 +41,6 @@ namespace Nekretnine.WinUI.Poruke
             dgvPoslanePoruke.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             await PretragaPrimljenihPoruka();
             await PretragaPoslanihPoruka();
-            SqlTableDependency<Model.Models.Poruka> _dependency;
-            var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
-
-
-            PopupNotifier popup = new PopupNotifier();
-            popup.Image = Properties.Resources.newpost;
-            popup.TitleText = "OBAVIJEST";
-            popup.ContentText = "Nova poruka primljena";
-            popup.Popup();
-            //var connectionString =@"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
-
-            //var connectionString = @"Server =.;Database=CarHireRC;Trusted_Connection=true;ConnectRetryCount=0";
-
-            //_dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString,"Poruka");
-
-            //_dependency.OnChanged += _dependency_OnChanged;
-            //_dependency.OnError += _dependency_OnError;
-            //_dependency.Start();
-            //try
-            //{
-            //    await connection.StartAsync();
-            //    //messagesList.Items.Add("Connection started");
-            //    //connectButton.IsEnabled = false;
-            //    //sendButton.IsEnabled = true;
-            //    connection.On("refreshEmployees", () =>
-            //    {
-            //        MessageBox.Show("evo me ");
-            //    });
-            //}
-            //catch (Exception ex)
-            //{
-            //    //messagesList.Items.Add(ex.Message);
-            //    throw;
-            //}
-        }
-        private void _dependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
-        {
-            throw e.Error;
-        }
-        private  void _dependency_OnChanged(object sender, RecordChangedEventArgs<Model.Models.Poruka> e)
-        {
-
-            if (e.ChangeType != ChangeType.None)
-            {
-                //this.grid.Dispatcher.Invoke(DispatcherPriority.Background, new Action(() =>
-                //{
-                //    this.grid.ItemsSource = ArticleController.GetAll();
-                //}));
-                MessageBox.Show("Novi zapis u bazi ");
-                 PretragaPrimljenihPoruka();
-
-
-            }
         }
         private void label5_Click(object sender, EventArgs e)
         {

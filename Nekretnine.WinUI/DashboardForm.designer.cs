@@ -86,7 +86,7 @@
             this.btnUpiti.Name = "btnUpiti";
             this.btnUpiti.Size = new System.Drawing.Size(206, 46);
             this.btnUpiti.TabIndex = 17;
-            this.btnUpiti.Text = "    Upiti za Sastanke";
+            this.btnUpiti.Text = "    Upiti za        Sastanke";
             this.btnUpiti.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUpiti.UseVisualStyleBackColor = true;
             this.btnUpiti.Click += new System.EventHandler(this.btnUpiti_Click);
@@ -151,7 +151,7 @@
             this.btnRezervacije.Name = "btnRezervacije";
             this.btnRezervacije.Size = new System.Drawing.Size(206, 46);
             this.btnRezervacije.TabIndex = 10;
-            this.btnRezervacije.Text = "    Rezervacije";
+            this.btnRezervacije.Text = "    Sastanci";
             this.btnRezervacije.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRezervacije.UseVisualStyleBackColor = true;
             this.btnRezervacije.Click += new System.EventHandler(this.btnRezervacije_Click);

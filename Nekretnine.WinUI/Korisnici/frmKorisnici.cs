@@ -106,6 +106,7 @@ namespace Nekretnine.WinUI.Korisnici
            await LoadGradovi(cmbGradNovi);
             await LoadGradovi(cmbGradLista);
             dgvKorisnici.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            this.tabControl1.TabPages.Remove(DetaljiKorisnika);
         }
 
         private void btnDodajSliku_Click(object sender, EventArgs e)
@@ -173,7 +174,7 @@ namespace Nekretnine.WinUI.Korisnici
             urediKorisnik.Email = txtEmailDetalji.Text;
             urediKorisnik.DatumRodjenja = dtpDatumRodjenjaDetalji.Value;
             urediKorisnik.Status = chbStatusDetalji.Checked;
-
+       
             var entity = await _service.Update<Model.Models.Korisnik>(_KorisnikId, urediKorisnik);
 
             if (entity != null)
@@ -225,6 +226,7 @@ namespace Nekretnine.WinUI.Korisnici
             urediKorisnik.GradId = user.GradId;
             urediKorisnik.Status = user.Status;
             urediKorisnik.DatumRodjenja = user.DatumRodjenja;
+            urediKorisnik.Username = user.Username;
             if (user.Slika.Length > 0)
             {
                 urediKorisnik.Slika = user.Slika;

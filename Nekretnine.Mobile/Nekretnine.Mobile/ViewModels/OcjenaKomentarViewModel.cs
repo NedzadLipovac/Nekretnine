@@ -21,6 +21,11 @@ namespace Nekretnine.Mobile.ViewModels
 
         public void DodajKomentar()
         {
+            if (KomentarValue.Length.Equals(0))
+            {
+                Application.Current.MainPage.DisplayAlert("Greska", "Unesite validan komentar ", "OK");
+                return;
+            }
             KomentarUpsertRequest komentarUpsertRequest = new KomentarUpsertRequest();
             komentarUpsertRequest.DatumVrijeme = DateTime.Now;
             komentarUpsertRequest.KlijentId = KlijentId;
@@ -31,6 +36,7 @@ namespace Nekretnine.Mobile.ViewModels
             if(entity!=null)
             {
                 Application.Current.MainPage.DisplayAlert("Obavijest", "Uspjesno ste dodali komentar", "OK");
+                KomentarValue = "";
             }
         }
        public OcjenaUpsertRequest novaOcjena { get; set; } = new OcjenaUpsertRequest();

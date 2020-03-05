@@ -42,9 +42,22 @@ namespace Nekretnine.Mobile.ViewModels
         {
             if(_KlijentID>0)
             {
+
+                if(Datum.Date < DateTime.Now)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greska", "Odaberite validan Datum", "OK");
+                    return;
+                }
+                if(NazivSastanka.Length.Equals(0))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greska", "Unesite naslov ", "OK");
+                    return;
+                }
+
                 upit.KlijentId = _KlijentID;
                 upit.NazivSastanka = NazivSastanka;
                 upit.PredlozeniDatum = Datum;
+
                 var entity = await _upitService.Insert<Model.Models.UpitZaSastanak>(upit);
                 if(entity!=null)
                 {

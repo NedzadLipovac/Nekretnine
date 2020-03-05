@@ -1,5 +1,6 @@
 ﻿
 using Nekretnine.Model.Requests;
+using Nekretnine.WinUI.Home;
 using Nekretnine.WinUI.Klijenti;
 using Nekretnine.WinUI.Korisnici;
 using Nekretnine.WinUI.Nekretnine;
@@ -22,11 +23,11 @@ namespace Nekretnine.WinUI
     public partial class DashboardForm : Form
     {
         private readonly APIService _KorisnikService = new APIService("Korisnik");
-        //private readonly APIService _korisniciUlogeService = new APIService("KorisniciUloga");
+      
 
         public string _username=null;
         public int KorisnikId;
-        //private bool ulogaAdmin = false, ulogaMenadzer = false, ulogaUposlenik = false;
+      
 
         public KorisnikSearchRequest _searchRequest = new KorisnikSearchRequest();
 
@@ -34,9 +35,7 @@ namespace Nekretnine.WinUI
         {
             _username = username;
             _searchRequest.Username = username;
-            //ulogaAdmin = ulogaA;
-            //ulogaMenadzer = ulogaM;
-            //ulogaUposlenik = ulogaU;
+       
             InitializeComponent();
         }
 
@@ -48,10 +47,8 @@ namespace Nekretnine.WinUI
 
             var user = users.FirstOrDefault();
             SqlTableDependency<Model.Models.Poruka> _dependency;
-            var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
-            //var connectionString =@"Server=.;Database=Nekretnine;Trusted_Connection=True;ConnectRetryCount=0";
+            var connectionString = Model.ConnectionString.connectionString;
 
-            //var connectionString = @"Server =.;Database=CarHireRC;Trusted_Connection=true;ConnectRetryCount=0";
 
             _dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString, "Poruka");
 
@@ -73,36 +70,15 @@ namespace Nekretnine.WinUI
                     MemoryStream memoryStream = new MemoryStream(slika);
                     pictureBox1.Image = Image.FromStream(memoryStream);
                 }
-                //Dobavljanje svih uloga od korisnika
-                //inicijalizacija labele uloge logiranog korisnika
+       
+                frmHome frm = new frmHome();
+                frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                frm.TopLevel = false;
+                pnlMjesto.Controls.Clear();
 
-                //if (ulogaAdmin)
-                //{
-                //    lblUloga.Text = "Administrator";
-
-                //}
-                //else if (ulogaMenadzer)
-                //{
-                //    lblUloga.Text = "Menadžer";
-
-                //}
-                //else
-                //{
-                //    lblUloga.Text = "Uposlenik";
-                //}
-
-
-
-                //pnlStats.Top = btnHome.Top;
-                //pnlStats.Height = btnHome.Height;
-                //frmHome frm = new frmHome(KorisnikId, ulogaAdmin, ulogaMenadzer, ulogaUposlenik);
-                //frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                //frm.TopLevel = false;
-                //pnlMjesto.Controls.Clear();
-
-                //pnlMjesto.Controls.Add(frm);
-                //frm.Dock = DockStyle.Fill;
-                //frm.Show();
+                pnlMjesto.Controls.Add(frm);
+                frm.Dock = DockStyle.Fill;
+                frm.Show();
 
 
             }
@@ -139,24 +115,22 @@ namespace Nekretnine.WinUI
         //Pregled home tab-a
         private void btnHome_Click(object sender, EventArgs e)
         {
-            //pnlStats.Top = btnHome.Top;
-            //pnlStats.Height = btnHome.Height;
-            //frmHome frm = new frmHome(KorisnikId,ulogaAdmin,ulogaMenadzer,ulogaUposlenik);
-            //frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            //frm.TopLevel = false;
-            //pnlMjesto.Controls.Clear();
+   
+            frmHome frm = new frmHome();
+            frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            frm.TopLevel = false;
+            pnlMjesto.Controls.Clear();
 
-            //pnlMjesto.Controls.Add(frm);
-            //frm.Dock = DockStyle.Fill;
-            //frm.Show();
+            pnlMjesto.Controls.Add(frm);
+            frm.Dock = DockStyle.Fill;
+            frm.Show();
 
         }
 
-        //Pregled ličnih poruka
+        //Pregled  poruka
         private void btnPoruke_Click(object sender, EventArgs e)
         {
-            //pnlStats.Top = btnPoruke.Top;
-            //pnlStats.Height = btnPoruke.Height;
+      
             btnPoruke.BackColor = Color.FromArgb(11, 40, 42);
             frmPoruke frm = new frmPoruke(KorisnikId);
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -185,8 +159,7 @@ namespace Nekretnine.WinUI
         //Pregled klijenata
         private void btnKlijenti_Click(object sender, EventArgs e)
         {
-            //pnlStats.Top = btnKlijenti.Top;
-            //pnlStats.Height = btnKlijenti.Height;
+         
             frmKlijenti frm = new frmKlijenti();
             frm.TopLevel = false;
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -200,12 +173,10 @@ namespace Nekretnine.WinUI
    
 
 
-        //Pregled rezervacija
+    
         private void btnRezervacije_Click(object sender, EventArgs e)
         {
-            //pnlStats.Top = btnRezervacije.Top;
-            //pnlStats.Height = btnRezervacije.Height;
-            //frmRezervacije frm = new frmRezervacije(KorisnikId, ulogaAdmin, ulogaMenadzer, ulogaUposlenik);
+           
             frmSastanci frm = new frmSastanci();
             frm.TopLevel = false;
             frm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

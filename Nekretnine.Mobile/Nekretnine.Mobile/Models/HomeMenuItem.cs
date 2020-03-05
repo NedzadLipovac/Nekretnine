@@ -6,12 +6,11 @@ namespace Nekretnine.Mobile.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About,
         Nekretnine,
         Poruke,
         UpitZaSastanak,
-        MojeNekretnine
+        MojeNekretnine,
+        Odjava
     }
     public class HomeMenuItem
     {

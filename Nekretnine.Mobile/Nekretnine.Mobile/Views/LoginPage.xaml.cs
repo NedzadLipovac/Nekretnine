@@ -15,6 +15,7 @@ namespace Nekretnine.Mobile.Views
 		public LoginPage ()
 		{
 			InitializeComponent ();
-		}
+            NavigationPage.SetHasNavigationBar(this, false);
+        }
 	}
 }

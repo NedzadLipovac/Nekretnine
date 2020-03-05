@@ -148,6 +148,7 @@ namespace Nekretnine.WinUI.Klijenti
             UrediKlijentRequest.GradId = user.GradId;
             UrediKlijentRequest.Status = user.Status;
             UrediKlijentRequest.DatumRodjenja = user.DatumRodjenja;
+            UrediKlijentRequest.Username = user.Username;
             if (user.Slika.Length > 0)
             {
                 UrediKlijentRequest.Slika = user.Slika;
@@ -227,6 +228,8 @@ namespace Nekretnine.WinUI.Klijenti
                 UrediKlijentRequest.Telefon = txtTelefon1.Text;
                 UrediKlijentRequest.Email = txtEmail1.Text;
                 UrediKlijentRequest.DatumRodjenja = dtpDatumRodjenja.Value;
+            UrediKlijentRequest.Password = "";
+            UrediKlijentRequest.PotvrdaPassworda = "";
             //UrediKlijentRequest.Password =txtPassword.Text;
             //UrediKlijentRequest.PotvrdaPassworda =txtPotvrdaPaassworda.Text;
                 var entity = await _service.Update<Model.Models.Klijent>(_KlijentId, UrediKlijentRequest);

@@ -20,13 +20,16 @@ namespace Nekretnine.Mobile.Views.Poruke
         public MessagesPage ()
 		{
 			InitializeComponent ();
-            
-		}
-		public MessagesPage (int KlijentId)
+            NavigationPage.SetHasNavigationBar(this, true);
+
+        }
+        public MessagesPage (int KlijentId)
 		{
 			InitializeComponent ();
             KlijentID = KlijentId;
             BindingContext = model = new PorukaViewModel(KlijentID);
+            NavigationPage.SetHasNavigationBar(this, true);
+
 
         }
         protected async override void OnAppearing()

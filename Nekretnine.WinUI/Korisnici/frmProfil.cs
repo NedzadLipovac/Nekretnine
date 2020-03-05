@@ -19,7 +19,7 @@ namespace Nekretnine.WinUI.Korisnici
         private readonly APIService _KorisniciService = new APIService("Korisnik");
         private readonly APIService _gradService = new APIService("Grad");
         private KorisnikUpsertRequest korisnik = new KorisnikUpsertRequest();
-
+        bool izmjena = false;
         private int _KorisnikId { get; set; }
         public frmProfil(int id)
         {
@@ -179,6 +179,11 @@ namespace Nekretnine.WinUI.Korisnici
                 if (entity != null)
                 {
                     MessageBox.Show("Podaci uspješno izmjenjeni");
+                    txtPassword.Clear();
+                    txtPotvrdaPassworda.Clear();
+                    txtStariPassword.Clear();
+       
+
                 } 
             }
 
@@ -194,6 +199,7 @@ namespace Nekretnine.WinUI.Korisnici
 
         private async void frmProfil_Load(object sender, EventArgs e)
         {
+          
             var user = await _KorisniciService.GetById<Model.Models.Korisnik>(_KorisnikId);
             var grad = await _gradService.GetById<Model.Models.Grad>(user.GradId);
 
@@ -237,7 +243,42 @@ namespace Nekretnine.WinUI.Korisnici
 
 
         }
+        private async void txtPassword_Validating(object sender, CancelEventArgs e)
+        {
+            izmjena = false;
+            if (!string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtPotvrdaPassworda.Text) || !string.IsNullOrEmpty(txtStariPassword.Text))
+            {
+                izmjena = true;
+            }
 
+            //Ako nije unesena stara lozinka
+            if (string.IsNullOrEmpty(txtStariPassword.Text) && izmjena)
+            {
+                errorProvider1.SetError(txtStariPassword, Properties.Resources.OldPassword);
+                e.Cancel = true;
+            }
+
+            else if (!string.IsNullOrEmpty(txtStariPassword.Text) && izmjena)
+            {
+                var user = await _KorisniciService.GetById<Model.Models.Korisnik>(_KorisnikId);
+
+                string hash = GenerateHash(user.LozinkaSalt, txtStariPassword.Text);
+
+                if (user.LozinkaHash != hash)
+                {
+                    errorProvider1.SetError(txtStariPassword, Properties.Resources.OldPassword);
+                    e.Cancel = true;
+                }
+                else
+                {
+                    errorProvider1.SetError(txtStariPassword, null);
+                }
+            }
+            else if (!string.IsNullOrEmpty(txtStariPassword.Text) && !izmjena)
+            {
+                errorProvider1.SetError(txtStariPassword, null);
+            }
+        }
         private void txtPrezime_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtPrezime.Text))
@@ -357,12 +398,7 @@ namespace Nekretnine.WinUI.Korisnici
 
         private void txtPotvrdaPassworda_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPotvrdaPassworda.Text))
-            {
-                errorProvider1.SetError(txtPotvrdaPassworda, Properties.Resources.Validation_Required);
-                e.Cancel = true;
-            }
-            else if (!string.IsNullOrWhiteSpace(txtPotvrdaPassworda.Text))
+         if (!string.IsNullOrWhiteSpace(txtPotvrdaPassworda.Text))
             {
                 if (string.Compare(txtPassword.Text, txtPotvrdaPassworda.Text) != 0)
                 {
@@ -382,53 +418,18 @@ namespace Nekretnine.WinUI.Korisnici
 
         private void txtNoviPassword_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                errorProvider1.SetError(txtPassword, Properties.Resources.Validation_Required);
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.SetError(txtPassword, null);
-            }
+        //    if (string.IsNullOrWhiteSpace(txtPassword.Text))
+        //    {
+        //        errorProvider1.SetError(txtPassword, Properties.Resources.Validation_Required);
+        //        e.Cancel = true;
+        //    }
+        //    else
+        //    {
+        //        errorProvider1.SetError(txtPassword, null);
+        //    }
         }
 
-        private async void txtPassword_Validating(object sender, CancelEventArgs e)
-        {
-            bool izmjena = false;
-            if (!string.IsNullOrEmpty(txtPassword.Text) || !string.IsNullOrEmpty(txtPotvrdaPassworda.Text))
-            {
-                izmjena = true;
-            }
-
-            //Ako nije unesena stara lozinka
-            if (string.IsNullOrEmpty(txtStariPassword.Text) && izmjena)
-            {
-                errorProvider1.SetError(txtStariPassword, Properties.Resources.OldPassword);
-                e.Cancel = true;
-            }
-
-            else if (!string.IsNullOrEmpty(txtStariPassword.Text) && izmjena)
-            {
-                var user = await _KorisniciService.GetById<Model.Models.Korisnik>(_KorisnikId);
-
-                string hash = GenerateHash(user.LozinkaSalt, txtStariPassword.Text);
-
-                if (user.LozinkaHash != hash)
-                {
-                    errorProvider1.SetError(txtStariPassword, Properties.Resources.OldPassword);
-                    e.Cancel = true;
-                }
-                else
-                {
-                    errorProvider1.SetError(txtStariPassword, null);
-                }
-            }
-            else if (string.IsNullOrEmpty(txtStariPassword.Text) && !izmjena)
-            {
-                errorProvider1.SetError(txtStariPassword, null);
-            }
-        }
+   
         #endregion
         public  static string GenerateHash(string salt, string password)
         {

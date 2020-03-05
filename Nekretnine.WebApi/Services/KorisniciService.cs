@@ -25,7 +25,7 @@ namespace Nekretnine.WebApi.Services
 
         public Korisnik Autentificiraj(string username, string password)
         {
-            var user = _context.Korisnici.FirstOrDefault(x => x.Ime == username);
+            var user = _context.Korisnici.FirstOrDefault(x => x.Username == username);
             if (user != null)
             {
                 var newHash = GenerateHash(user.LozinkaSalt, password);

@@ -12,7 +12,7 @@ namespace Nekretnine.WinUI
 {
     public partial class frmLogin : Form
     {
-        APIService _service = new APIService("Grad");
+        APIService _service = new APIService("Values");
         public frmLogin()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace Nekretnine.WinUI
             {
                 APIService.Username = txtUserName.Text;
                 APIService.Password = txtPassword.Text;
-
+               
                 await _service.Get<dynamic>(null);
 
                 DashboardForm frm = new DashboardForm(APIService.Username);

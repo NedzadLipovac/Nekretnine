@@ -18,12 +18,13 @@ namespace Nekretnine.Mobile.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                //new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                //new HomeMenuItem {Id = MenuItemType.About, Title="About" },
                 new HomeMenuItem {Id = MenuItemType.Nekretnine, Title="Nekretnine" },
                 new HomeMenuItem {Id = MenuItemType.Poruke, Title="Poruke" },
                 new HomeMenuItem {Id = MenuItemType.UpitZaSastanak, Title="Upit za sastanak" },
-                new HomeMenuItem {Id = MenuItemType.MojeNekretnine, Title="Moje nekretnine " }
+                new HomeMenuItem {Id = MenuItemType.MojeNekretnine, Title="Moje nekretnine " },
+                new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjavi se" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

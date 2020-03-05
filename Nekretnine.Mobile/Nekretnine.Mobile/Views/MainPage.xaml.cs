@@ -23,10 +23,7 @@ namespace Nekretnine.Mobile.Views
             KlijentID = KlijentId;
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
-            //SqlTableDependency<Model.Models.Poruka> _dependency;
-            //var connectionString = @"Server=.;initial catalog=Nekretnine;User Id=Nedzad123;Password=test;";
-            //_dependency = new SqlTableDependency<Model.Models.Poruka>(connectionString, "Poruka");
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
 
         }
         //private void _dependency_OnError(object sender, TableDependency.SqlClient.Base.EventArgs.ErrorEventArgs e)
@@ -54,12 +51,12 @@ namespace Nekretnine.Mobile.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
-                        break;
-                    case (int)MenuItemType.About:
-                        MenuPages.Add(id, new NavigationPage(new AboutPage()));
-                        break;
+                    //case (int)MenuItemType.Browse:
+                    //    MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    //    break;
+                    //case (int)MenuItemType.About:
+                    //    MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                    //    break;
                     case (int)MenuItemType.Nekretnine:
                         MenuPages.Add(id, new NavigationPage(new Nekretnine.Nekretnine(KlijentID)));
                         break;
@@ -71,6 +68,9 @@ namespace Nekretnine.Mobile.Views
                         break;
                     case (int)MenuItemType.MojeNekretnine:
                         MenuPages.Add(id, new NavigationPage(new Nekretnine.SpaseneNekretninePage(KlijentID)));
+                        break;
+                    case (int)MenuItemType.Odjava:
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
 
                 }

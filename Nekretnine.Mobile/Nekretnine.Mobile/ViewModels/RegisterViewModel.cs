@@ -116,8 +116,10 @@ namespace Nekretnine.Mobile.ViewModels
         {
             bool usernameExists = await CheckUsername(Username);
             bool validationRight = true;
-            if (Ime.Length.Equals(0) || Prezime.Length.Equals(0) || Email.Length.Equals(0) || Username.Length.Equals(0) || Adresa.Length.Equals(0)
-                || Telefon.Length.Equals(0) || SelectedGrad.GradId == 0 || Password.Length.Equals(0) || ConfirmPassword.Length.Equals(0))
+            if (Ime.Length.Equals(0) || Prezime.Length.Equals(0) || Email.Length.Equals(0) 
+                || Username.Length.Equals(0) || Adresa.Length.Equals(0)
+                || Telefon.Length.Equals(0) || SelectedGrad.GradId == 0 || Password.Length.Equals(0) 
+                || ConfirmPassword.Length.Equals(0) || DatumRodjenja.Year < 1900)
                 validationRight = false;
 
 

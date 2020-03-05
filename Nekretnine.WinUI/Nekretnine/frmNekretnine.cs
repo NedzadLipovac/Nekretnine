@@ -41,6 +41,8 @@ namespace Nekretnine.WinUI.Nekretnine
         {
             dgvNekretnine.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvKomentari.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+
             this.tabControl1.TabPages.Remove(DetaljiNekretnine);
             this.tabControl1.TabPages.Remove(SlikeNekretnine);
             this.tabControl1.TabPages.Remove(komentariPage);
@@ -144,7 +146,7 @@ namespace Nekretnine.WinUI.Nekretnine
                 id = int.Parse(val.ToString());
                 _NekretninaId = id;
 
-                await LoadGradovi(cmbGradDetalji);
+                //await LoadGradovi(cmbGradDetalji);
                 await LoadKlijenti(cmbKlijent);
                 await UcitajDetaljeNekretnina();
 
@@ -159,10 +161,11 @@ namespace Nekretnine.WinUI.Nekretnine
 
         private async Task UcitajDetaljeNekretnina()
         {
-            var nekretnina = await _service.GetById<Model.Models.Nekretnina>(_NekretninaId);
-            var grad = await _gradService.GetById<Model.Models.Grad>(nekretnina.GradId);
             await UcitajKomentareNekretnine();
 
+            var nekretnina = await _service.GetById<Model.Models.Nekretnina>(_NekretninaId);
+            var grad = await _gradService.GetById<Model.Models.Grad>(nekretnina.GradId);
+            await LoadGradovi(cmbGradDetalji);
             txtAdresaDetalji.Text = nekretnina.Adresa;
             txtGodinaIzgradnjeDetalji.Text = nekretnina.GodinaIzgradnje;
             txtKvadraturaDetalji.Text = nekretnina.Kvadratura.ToString();
@@ -284,7 +287,16 @@ namespace Nekretnine.WinUI.Nekretnine
             nekretninaUredi.Vlasnik = txtVlasnikDetalji.Text;
             nekretninaUredi.Prodaja = chbProdajaDetalji.Checked;
             nekretninaUredi.Naziv = txtNazivDetalji.Text;
-            nekretninaUredi.GradId = cmbGradDetalji.SelectedIndex;
+
+            var GradObj = cmbGrad.SelectedValue;
+            if (GradObj == null)
+                GradObj = 0;
+            if (int.TryParse(GradObj.ToString(), out int GradId))
+            {
+                if(GradId>0)
+                nekretninaUredi.GradId = GradId;
+            }
+            //nekretninaUredi.GradId = cmbGradDetalji.SelectedIndex;
             var element = _service.Update<Model.Models.Nekretnina>(_NekretninaId,nekretninaUredi);
 
             if(element!=null)

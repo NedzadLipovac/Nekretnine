@@ -28,11 +28,6 @@ namespace Nekretnine.Mobile.ViewModels
             KlijentID = KlijentId;
             NekretninaID = NekretninaId;
             InitCommand = new Command(async () => await Init());
-
-            connection = new HubConnectionBuilder()
-            .WithUrl("http://localhost:64804/api/poruka")
-            .Build();
-             
         }
 
         public ObservableCollection<Nekretnina> NekretninaList { get; set; } = new ObservableCollection<Nekretnina>();
@@ -43,12 +38,9 @@ namespace Nekretnine.Mobile.ViewModels
         public async Task Init()
         {
 
-            connection = new HubConnectionBuilder()
-            //.WithUrl("http://localhost:64804/api/Poruka")
-            .WithUrl("/Myhub")
-            .Build();
+            
 
-            await connection.StartAsync();
+        
             SpaseneNekretnineSearchRequest search = new SpaseneNekretnineSearchRequest();
 
             search.NekretninaId = 0;

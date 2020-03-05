@@ -36,6 +36,12 @@ namespace Nekretnine.Mobile.ViewModels
             get { return _sadrzajPoruke; }
             set { SetProperty(ref _sadrzajPoruke, value); }
         }
+        public string _naslovPoruke = string.Empty;
+        public string NaslovPoruke
+        {
+            get { return _naslovPoruke; }
+            set { SetProperty(ref _naslovPoruke, value); }
+        }
 
         public byte[] _posiljaocSlikaThumb;
         public byte[] PosiljaocSlikaThumb
@@ -68,17 +74,24 @@ namespace Nekretnine.Mobile.ViewModels
             novaPoruka.KlijentId = Poruka.KlijentId;
             novaPoruka.UposlenikId = 6;
             novaPoruka.DatumVrijeme = DateTime.Now;
-            novaPoruka.Naslov = Poruka.Naslov;
+            novaPoruka.Naslov = NaslovPoruke;
             novaPoruka.Procitano = false;
             novaPoruka.Posiljaoc = "Klijent";
             novaPoruka.Sadrzaj = SadrzajPoruke;
+            if(SadrzajPoruke.Equals(0) || NaslovPoruke.Length.Equals(0))
+            {
+                await Application.Current.MainPage.DisplayAlert("Greska", "Naslov i sadrzaj su obavezni", "OK");
+                return;
 
+            }
             try
             {
               var entitny=  await _porukaService.Insert<Model.Models.Poruka>(novaPoruka);
                 if(entitny!=null)
                 {
                     await Application.Current.MainPage.DisplayAlert("Obavijest","Uspjesno ste poslali poruku", "OK");
+                    SadrzajPoruke = "";
+                    NaslovPoruke = "";
 
                 }
 
